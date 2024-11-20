@@ -1,4 +1,4 @@
-# Iperf on FreeRTOS+ TCP, on STM32H753 Nucleo
+# Iperf on FreeRTOS+ TCP for STM32H753 Nucleo
 
 This is a port of [Hein Tibosch's iperf](https://github.com/htibosch/freertos_plus_projects/tree/e2f7fca43a6c52013027a42a7d1df1a5bbe84eba) to run on an STM32H753 Nucleo.
 
