@@ -261,13 +261,13 @@ void SystemClock_Config(void)
 //{
 //
 //  /* USER CODE BEGIN ETH_Init 0 */
-////
+////////
 //  /* USER CODE END ETH_Init 0 */
 //
 //   static uint8_t MACAddr[6];
 //
 //  /* USER CODE BEGIN ETH_Init 1 */
-////
+////////
 //  /* USER CODE END ETH_Init 1 */
 //  heth.Instance = ETH;
 //  MACAddr[0] = 0x00;
@@ -283,7 +283,7 @@ void SystemClock_Config(void)
 //  heth.Init.RxBuffLen = 1524;
 //
 //  /* USER CODE BEGIN MACADDRESS */
-////
+////////
 //  /* USER CODE END MACADDRESS */
 //
 //  if (HAL_ETH_Init(&heth) != HAL_OK)
@@ -296,28 +296,28 @@ void SystemClock_Config(void)
 //  TxConfig.ChecksumCtrl = ETH_CHECKSUM_IPHDR_PAYLOAD_INSERT_PHDR_CALC;
 //  TxConfig.CRCPadCtrl = ETH_CRC_PAD_INSERT;
 //  /* USER CODE BEGIN ETH_Init 2 */
-////
+////////
 //  /* USER CODE END ETH_Init 2 */
 //
 //}
-//
-///**
-//  * @brief TIM2 Initialization Function
-//  * @param None
-//  * @retval None
-//  */
+
+/**
+  * @brief TIM2 Initialization Function
+  * @param None
+  * @retval None
+  */
 //static void MX_TIM2_Init(void)
 //{
 //
 //  /* USER CODE BEGIN TIM2_Init 0 */
-////
+////////
 //  /* USER CODE END TIM2_Init 0 */
 //
 //  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
 //  TIM_MasterConfigTypeDef sMasterConfig = {0};
 //
 //  /* USER CODE BEGIN TIM2_Init 1 */
-////
+////////
 //  /* USER CODE END TIM2_Init 1 */
 //  htim2.Instance = TIM2;
 //  htim2.Init.Prescaler = 0;
@@ -341,7 +341,7 @@ void SystemClock_Config(void)
 //    Error_Handler();
 //  }
 //  /* USER CODE BEGIN TIM2_Init 2 */
-////
+////////
 //  /* USER CODE END TIM2_Init 2 */
 //
 //}
@@ -482,9 +482,9 @@ static void MX_GPIO_Init(void)
  * Backup   SRAM	4k		4k	4k	0x38800000
  */
 
-static uint8_t ucRAM_1 [384 * 1024] __attribute__( ( section( ".ethernet_data" ) ) );
+static uint8_t ucRAM_1 [256 * 1024] __attribute__( ( section( ".ethernet_data" ) ) );
 //static uint8_t ucRAM_2 [128 * 1024] __attribute__( ( section( ".ram2_data" ) ) );
-static uint8_t ucRAM_3 [ 64 * 1024] __attribute__( ( section( ".ram3_data" ) ) );
+static uint8_t ucRAM_3 [ 32 * 1024] __attribute__( ( section( ".ram3_data" ) ) );
 
 #define mainMEM_REGION( REGION )   REGION, sizeof( REGION )
 

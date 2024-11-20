@@ -54,18 +54,16 @@ Here is an example of the changes to the linker file:
 	} >AXI_RAM
 
 Here is a table of 3 types of STH32H7 :
-/**
- * RAM area	H747	H743	H742	Location
- * ------------------------------------------------
- * DTCM		128k	128k	128k	0x20000000
- * AXI-SRAM	511k	511k	384k	0x24000000
- *
- * SRAM1	128k	128k	32k		0x30000000
- * SRAM2	128k	128k	16k		0x30020000
- * SRAM3	32k		32k	 	-		0x30040000
- * SRAM4	64k		64k		64k		0x38000000
- * Backup   SRAM	4k		4k	4k	0x38800000
- */
+
+|RAM area   |H747|H743|H742|Location  |
+|-----------|----|----|----|----------|
+|DTCM       |128k|128k|128k|0x20000000|
+|AXI-SRAM   |511k|511k|384k|0x24000000|
+|SRAM1      |128k|128k|32k |0x30000000|
+|SRAM2      |128k|128k|16k |0x30020000|
+|SRAM3      |32k | 32k| -  |0x30040000|
+|SRAM4      |64k |64k |64k |0x38000000|
+|Backup SRAM|4k  |4k  |4k  |0x38800000|
 
 
 Please make sure that the addresses and lengths are correct for your model of STM32H7xx.
@@ -104,13 +102,13 @@ The most important DMAC registers, along with their names which are used in the 
     __IO uint32_t DMACCR;          // ETH_DMACCR        DMA Channel control register
     __IO uint32_t DMACTCR;         // ETH_DMACTXCR      Channel Tx transmit control register
     __IO uint32_t DMACRCR;         // ETH_DMACRXCR      Channel Rx receive control register
-    __IO uint32_t DMACTDLAR;       // ETH_DMACTXDLAR    Channel Tx descriptor list address register 
+    __IO uint32_t DMACTDLAR;       // ETH_DMACTXDLAR    Channel Tx descriptor list address register
     __IO uint32_t DMACRDLAR;       // ETH_DMACRXDLAR    Channel Rx descriptor list address register
     __IO uint32_t DMACTDTPR;       // ETH_DMACTXDTPR    Channel TX tail pointer
     __IO uint32_t DMACRDTPR;       // ETH_DMACRXDTPR    Channel RX tail pointer
     __IO uint32_t DMACTDRLR;       // ETH_DMACTXRLR     Channel Tx descriptor ring length register
     __IO uint32_t DMACRDRLR;       // ETH_DMACRXRLR     Channel Rx descriptor ring length register
-    __IO uint32_t DMACIER;         // ETH_DMACIER       Channel interrupt enable register 
+    __IO uint32_t DMACIER;         // ETH_DMACIER       Channel interrupt enable register
     __IO uint32_t DMACRIWTR;       // ETH_DMACRXIWTR    Channel Rx interrupt watchdog timer register
     __IO uint32_t DMACCATDR;       // ETH_DMACCATXDR    Channel Tx current application transmit descriptor register
     __IO uint32_t DMACCARDR;       // ETH_DMACCARXDR    Channel Rx current application receive descriptor register

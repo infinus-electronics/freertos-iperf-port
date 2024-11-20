@@ -86,7 +86,7 @@ void NMI_Handler(void)
 //void HardFault_Handler(void)
 //{
 //  /* USER CODE BEGIN HardFault_IRQn 0 */
-////
+////////
 //  /* USER CODE END HardFault_IRQn 0 */
 //  while (1)
 //  {
@@ -146,10 +146,10 @@ void UsageFault_Handler(void)
 //void SVC_Handler(void)
 //{
 //  /* USER CODE BEGIN SVCall_IRQn 0 */
-////
+////////
 //  /* USER CODE END SVCall_IRQn 0 */
 //  /* USER CODE BEGIN SVCall_IRQn 1 */
-////
+////////
 //  /* USER CODE END SVCall_IRQn 1 */
 //}
 
@@ -172,10 +172,10 @@ void DebugMon_Handler(void)
 //void PendSV_Handler(void)
 //{
 //  /* USER CODE BEGIN PendSV_IRQn 0 */
-////
+////////
 //  /* USER CODE END PendSV_IRQn 0 */
 //  /* USER CODE BEGIN PendSV_IRQn 1 */
-////
+////////
 //  /* USER CODE END PendSV_IRQn 1 */
 //}
 
@@ -209,11 +209,11 @@ void SysTick_Handler(void)
 //void ETH_IRQHandler(void)
 //{
 //  /* USER CODE BEGIN ETH_IRQn 0 */
-//////
+//////////
 //  /* USER CODE END ETH_IRQn 0 */
 //  HAL_ETH_IRQHandler(&heth);
 //  /* USER CODE BEGIN ETH_IRQn 1 */
-//////
+//////////
 //  /* USER CODE END ETH_IRQn 1 */
 //}
 

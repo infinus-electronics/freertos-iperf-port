@@ -207,41 +207,41 @@
         typedef struct
         {
             uint32_t Attributes;          /*!< Tx packet HW features capabilities.
-                                           *   This parameter can be a combination of @ref ETH_Tx_Packet_Attributes*/
+                                           *  This parameter can be a combination of @ref ETH_Tx_Packet_Attributes*/
 
             uint32_t Length;              /*!< Total packet length   */
 
             ETH_BufferTypeDef * TxBuffer; /*!< Tx buffers pointers */
 
             uint32_t SrcAddrCtrl;         /*!< Specifies the source address insertion control.
-                                           *   This parameter can be a value of @ref ETH_Tx_Packet_Source_Addr_Control */
+                                           *  This parameter can be a value of @ref ETH_Tx_Packet_Source_Addr_Control */
 
             uint32_t CRCPadCtrl;          /*!< Specifies the CRC and Pad insertion and replacement control.
-                                           *   This parameter can be a value of @ref ETH_Tx_Packet_CRC_Pad_Control  */
+                                           * This parameter can be a value of @ref ETH_Tx_Packet_CRC_Pad_Control  */
 
             uint32_t ChecksumCtrl;        /*!< Specifies the checksum insertion control.
-                                           *   This parameter can be a value of @ref ETH_Tx_Packet_Checksum_Control  */
+                                           * This parameter can be a value of @ref ETH_Tx_Packet_Checksum_Control  */
 
             uint32_t MaxSegmentSize;      /*!< Sets TCP maximum segment size only when TCP segmentation is enabled.
-                                           *   This parameter can be a value from 0x0 to 0x3FFF */
+                                           * This parameter can be a value from 0x0 to 0x3FFF */
 
             uint32_t PayloadLen;          /*!< Sets Total payload length only when TCP segmentation is enabled.
-                                           *   This parameter can be a value from 0x0 to 0x3FFFF */
+                                           * This parameter can be a value from 0x0 to 0x3FFFF */
 
             uint32_t TCPHeaderLen;        /*!< Sets TCP header length only when TCP segmentation is enabled.
-                                           *   This parameter can be a value from 0x5 to 0xF */
+                                           * This parameter can be a value from 0x5 to 0xF */
 
             uint32_t VlanTag;             /*!< Sets VLAN Tag only when VLAN is enabled.
-                                           *   This parameter can be a value from 0x0 to 0xFFFF*/
+                                           * This parameter can be a value from 0x0 to 0xFFFF*/
 
             uint32_t VlanCtrl;            /*!< Specifies VLAN Tag insertion control only when VLAN is enabled.
-                                           *   This parameter can be a value of @ref ETH_Tx_Packet_VLAN_Control */
+                                           * This parameter can be a value of @ref ETH_Tx_Packet_VLAN_Control */
 
             uint32_t InnerVlanTag;        /*!< Sets Inner VLAN Tag only when Inner VLAN is enabled.
-                                           *   This parameter can be a value from 0x0 to 0x3FFFF */
+                                           * This parameter can be a value from 0x0 to 0x3FFFF */
 
             uint32_t InnerVlanCtrl;       /*!< Specifies Inner VLAN Tag insertion control only when Inner VLAN is enabled.
-                                           *   This parameter can be a value of @ref ETH_Tx_Packet_Inner_VLAN_Control   */
+                                           * This parameter can be a value of @ref ETH_Tx_Packet_Inner_VLAN_Control   */
         } ETH_TxPacketConfig;
 
 /**
@@ -262,10 +262,10 @@
             uint32_t AppDescNbr;                /*<! Number of descriptors of last received packet. */
 
             uint32_t AppContextDesc;            /*<! If 1 a context descriptor is present in last received packet.
-                                                 *   If 0 no context descriptor is present in last received packet. */
+                                                 * If 0 no context descriptor is present in last received packet. */
 
             uint32_t ItMode;                    /*<! If 1, DMA will generate the Rx complete interrupt.
-                                                 *   If 0, DMA will not generate the Rx complete interrupt. */
+                                                 * If 0, DMA will not generate the Rx complete interrupt. */
         } ETH_RxDescListTypeDef;
 
 /**
@@ -284,25 +284,25 @@
             uint32_t InnerVlanTag;    /*<! Inner Vlan Tag value */
 
             uint32_t Checksum;        /*<! Rx Checksum status.
-                                       *   This parameter can be a value of @ref ETH_Rx_Checksum_Status */
+                                       * This parameter can be a value of @ref ETH_Rx_Checksum_Status */
 
             uint32_t HeaderType;      /*<! IP header type.
-                                       *   This parameter can be a value of @ref ETH_Rx_IP_Header_Type */
+                                       * This parameter can be a value of @ref ETH_Rx_IP_Header_Type */
 
             uint32_t PayloadType;     /*<! Payload type.
-                                       *   This parameter can be a value of @ref ETH_Rx_Payload_Type */
+                                       * This parameter can be a value of @ref ETH_Rx_Payload_Type */
 
             uint32_t MacFilterStatus; /*<! MAC filter status.
-                                       *   This parameter can be a value of @ref ETH_Rx_MAC_Filter_Status */
+                                       * This parameter can be a value of @ref ETH_Rx_MAC_Filter_Status */
 
             uint32_t L3FilterStatus;  /*<! L3 filter status
-                                       *   This parameter can be a value of @ref ETH_Rx_L3_Filter_Status */
+                                       * This parameter can be a value of @ref ETH_Rx_L3_Filter_Status */
 
             uint32_t L4FilterStatus;  /*<! L4 filter status
-                                       *   This parameter can be a value of @ref ETH_Rx_L4_Filter_Status */
+                                       * This parameter can be a value of @ref ETH_Rx_L4_Filter_Status */
 
             uint32_t ErrorCode;       /*<! Rx error code
-                                       *   This parameter can be a combination of @ref ETH_Rx_Error_Code */
+                                       * This parameter can be a combination of @ref ETH_Rx_Error_Code */
         } ETH_RxPacketInfo;
 
 /**
@@ -315,12 +315,12 @@
         typedef struct
         {
             uint32_t SourceAddrControl;                      /*!< Selects the Source Address Insertion or Replacement Control.
-                                                              *   This parameter can be a value of @ref ETH_Source_Addr_Control */
+                                                              * This parameter can be a value of @ref ETH_Source_Addr_Control */
 
             FunctionalState ChecksumOffload;                 /*!< Enables or Disable the checksum checking for received packet payloads TCP, UDP or ICMP headers */
 
             uint32_t InterPacketGapVal;                      /*!< Sets the minimum IPG between Packet during transmission.
-                                                              *    This parameter can be a value of @ref ETH_Inter_Packet_Gap */
+                                                              *  This parameter can be a value of @ref ETH_Inter_Packet_Gap */
 
             FunctionalState GiantPacketSizeLimitControl;     /*!< Enables or disables the Giant Packet Size Limit Control. */
 
@@ -331,22 +331,22 @@
             FunctionalState AutomaticPadCRCStrip;            /*!< Enables or disables  the Automatic MAC Pad/CRC Stripping.*/
 
             FunctionalState Watchdog;                        /*!< Enables or disables the Watchdog timer on Rx path
-                                                              *         When enabled, the MAC allows no more then 2048 bytes to be received.
-                                                              *         When disabled, the MAC can receive up to 16384 bytes. */
+                                                              * When enabled, the MAC allows no more then 2048 bytes to be received.
+                                                              * When disabled, the MAC can receive up to 16384 bytes. */
 
             FunctionalState Jabber;                          /*!< Enables or disables Jabber timer on Tx path
-                                                              *         When enabled, the MAC allows no more then 2048 bytes to be sent.
-                                                              *         When disabled, the MAC can send up to 16384 bytes. */
+                                                              * When enabled, the MAC allows no more then 2048 bytes to be sent.
+                                                              * When disabled, the MAC can send up to 16384 bytes. */
 
             FunctionalState JumboPacket;                     /*!< Enables or disables receiving Jumbo Packet
-                                                              *         When enabled, the MAC allows jumbo packets of 9,018 bytes
-                                                              *         without reporting a giant packet error */
+                                                              * When enabled, the MAC allows jumbo packets of 9,018 bytes
+                                                              * without reporting a giant packet error */
 
             uint32_t Speed;                                  /*!< Sets the Ethernet speed: 10/100 Mbps.
-                                                              *         This parameter can be a value of @ref ETH_Speed */
+                                                              * This parameter can be a value of @ref ETH_Speed */
 
             uint32_t DuplexMode;                             /*!< Selects the MAC duplex mode: Half-Duplex or Full-Duplex mode
-                                                              *         This parameter can be a value of @ref ETH_Duplex_Mode */
+                                                              * This parameter can be a value of @ref ETH_Duplex_Mode */
 
             FunctionalState LoopbackMode;                    /*!< Enables or disables the loopback mode */
 
@@ -359,12 +359,12 @@
             FunctionalState RetryTransmission;               /*!< Enables or disables the MAC retry transmission, when a collision occurs in Half Duplex mode.*/
 
             uint32_t BackOffLimit;                           /*!< Selects the BackOff limit value.
-                                                              *      This parameter can be a value of @ref ETH_Back_Off_Limit */
+                                                              * This parameter can be a value of @ref ETH_Back_Off_Limit */
 
             FunctionalState DeferralCheck;                   /*!< Enables or disables the deferral check function in Half Duplex mode. */
 
             uint32_t PreambleLength;                         /*!< Selects or not the Preamble Length for Transmit packets (Full Duplex mode).
-                                                              *         This parameter can be a value of @ref ETH_Preamble_Length */
+                                                              * This parameter can be a value of @ref ETH_Preamble_Length */
 
             FunctionalState UnicastSlowProtocolPacketDetect; /*!< Enable or disables the Detection of Slow Protocol Packets with unicast address. */
 
@@ -373,18 +373,18 @@
             FunctionalState CRCCheckingRxPackets;            /*!< Enable or disables the CRC Checking for Received Packets. */
 
             uint32_t GiantPacketSizeLimit;                   /*!< Specifies the packet size that the MAC will declare it as Giant, If it's size is
-                                                              *    greater than the value programmed in this field in units of bytes
-                                                              *        This parameter must be a number between Min_Data = 0x618 (1518 byte) and Max_Data = 0x3FFF (32 Kbyte)*/
+                                                              * greater than the value programmed in this field in units of bytes
+                                                              * This parameter must be a number between Min_Data = 0x618 (1518 byte) and Max_Data = 0x3FFF (32 Kbyte)*/
 
             FunctionalState ExtendedInterPacketGap;          /*!< Enable or disables the extended inter packet gap. */
 
             uint32_t ExtendedInterPacketGapVal;              /*!< Sets the Extended IPG between Packet during transmission.
-                                                              *         This parameter can be a value from 0x0 to 0xFF */
+                                                              * This parameter can be a value from 0x0 to 0xFF */
 
             FunctionalState ProgrammableWatchdog;            /*!< Enable or disables the Programmable Watchdog.*/
 
             uint32_t WatchdogTimeout;                        /*!< This field is used as watchdog timeout for a received packet
-                                                              *      This parameter can be a value of @ref ETH_Watchdog_Timeout */
+                                                              * This parameter can be a value of @ref ETH_Watchdog_Timeout */
 
             uint32_t PauseTime;                              /*!< This field holds the value to be used in the Pause Time field in the transmit control packet.
                                                               * This parameter must be a number between Min_Data = 0x0 and Max_Data = 0xFFFF */
@@ -403,10 +403,10 @@
                                                               * and disables its transmitter for a specified (Pause) time */
 
             uint32_t TransmitQueueMode;                      /*!< Specifies the Transmit Queue operating mode.
-                                                              *    This parameter can be a value of @ref ETH_Transmit_Mode */
+                                                              * This parameter can be a value of @ref ETH_Transmit_Mode */
 
             uint32_t ReceiveQueueMode;                       /*!< Specifies the Receive Queue operating mode.
-                                                              *           This parameter can be a value of @ref ETH_Receive_Mode */
+                                                              *  This parameter can be a value of @ref ETH_Receive_Mode */
 
             FunctionalState DropTCPIPChecksumErrorPacket;    /*!< Enables or disables Dropping of TCPIP Checksum Error Packets. */
 
@@ -425,34 +425,34 @@
         typedef struct
         {
             uint32_t DMAArbitration;             /*!< Sets the arbitration scheme between DMA Tx and Rx
-                                                  *           This parameter can be a value of @ref ETH_DMA_Arbitration */
+                                                  *          This parameter can be a value of @ref ETH_DMA_Arbitration */
 
             FunctionalState AddressAlignedBeats; /*!< Enables or disables the AHB Master interface address aligned
-                                                  *              burst transfers on Read and Write channels  */
+                                                  *             burst transfers on Read and Write channels  */
 
             uint32_t BurstMode;                  /*!< Sets the AHB Master interface burst transfers.
-                                                  *       This parameter can be a value of @ref ETH_Burst_Mode */
+                                                  *      This parameter can be a value of @ref ETH_Burst_Mode */
 
             FunctionalState RebuildINCRxBurst;   /*!< Enables or disables the AHB Master to rebuild the pending beats
-                                                  *     of any initiated burst transfer with INCRx and SINGLE transfers. */
+                                                  *    of any initiated burst transfer with INCRx and SINGLE transfers. */
 
             FunctionalState PBLx8Mode;           /*!< Enables or disables the PBL multiplication by eight. */
 
             uint32_t TxDMABurstLength;           /*!< Indicates the maximum number of beats to be transferred in one Tx DMA transaction.
-                                                  *       This parameter can be a value of @ref ETH_Tx_DMA_Burst_Length */
+                                                  *      This parameter can be a value of @ref ETH_Tx_DMA_Burst_Length */
 
             FunctionalState SecondPacketOperate; /*!< Enables or disables the Operate on second Packet mode, which allows the DMA to process a second
-                                                  *        Packet of Transmit data even before obtaining the status for the first one. */
+                                                  *       Packet of Transmit data even before obtaining the status for the first one. */
 
             uint32_t RxDMABurstLength;           /*!< Indicates the maximum number of beats to be transferred in one Rx DMA transaction.
-                                                  *      This parameter can be a value of @ref ETH_Rx_DMA_Burst_Length */
+                                                  *     This parameter can be a value of @ref ETH_Rx_DMA_Burst_Length */
 
             FunctionalState FlushRxPacket;       /*!< Enables or disables the Rx Packet Flush */
 
             FunctionalState TCPSegmentation;     /*!< Enables or disables the TCP Segmentation */
 
             uint32_t MaximumSegmentSize;         /*!< Sets the maximum segment size that should be used while segmenting the packet
-                                                  *    This parameter can be a value from 0x40 to 0x3FFF */
+                                                  *   This parameter can be a value from 0x40 to 0x3FFF */
         } ETH_DMAConfigTypeDef;
 
 /**
@@ -515,10 +515,10 @@
                 ETH_InitTypeDef Init;              /*!< Ethernet Init Configuration */
 
                 ETH_TxDescListTypeDef TxDescList;  /*!< Tx descriptor wrapper: holds all Tx descriptors list
-                                                    *  addresses and current descriptor index  */
+                                                    *   addresses and current descriptor index  */
 
                 ETH_RxDescListTypeDef RxDescList;  /*!< Rx descriptor wrapper: holds all Rx descriptors list
-                                                    *  addresses and current descriptor index  */
+                                                    *   addresses and current descriptor index  */
 
                 HAL_LockTypeDef Lock;              /*!< Locking object             */
 
@@ -527,34 +527,34 @@
                                                     *    This parameter can be a value of @ref HAL_ETH_StateTypeDef */
 
                 __IO HAL_ETH_StateTypeDef RxState; /*!< ETH state information related to Rx operations.
-                                                    *   This parameter can be a value of @ref HAL_ETH_StateTypeDef */
+                                                    *    This parameter can be a value of @ref HAL_ETH_StateTypeDef */
 
                 __IO uint32_t ErrorCode;           /*!< Holds the global Error code of the ETH HAL status machine
-                                                   *   This parameter can be a value of of @ref ETH_Error_Code */
+                                                    *    This parameter can be a value of of @ref ETH_Error_Code */
 
                 __IO uint32_t DMAErrorCode;        /*!< Holds the DMA Rx Tx Error code when a DMA AIS interrupt occurs
-                                                    *    This parameter can be a combination of @ref ETH_DMA_Status_Flags */
+                                                    *     This parameter can be a combination of @ref ETH_DMA_Status_Flags */
 
                 __IO uint32_t MACErrorCode;        /*!< Holds the MAC Rx Tx Error code when a MAC Rx or Tx status interrupt occurs
-                                                    *   This parameter can be a combination of @ref ETH_MAC_Rx_Tx_Status */
+                                                    *    This parameter can be a combination of @ref ETH_MAC_Rx_Tx_Status */
 
                 __IO uint32_t MACWakeUpEvent;      /*!< Holds the Wake Up event when the MAC exit the power down mode
-                                                   *   This parameter can be a value of @ref ETH_MAC_Wake_Up_Event */
+                                                    *    This parameter can be a value of @ref ETH_MAC_Wake_Up_Event */
 
                 __IO uint32_t MACLPIEvent;         /*!< Holds the LPI event when the an LPI status interrupt occurs.
-                                                    *   This parameter can be a value of @ref ETHEx_LPI_Event */
+                                                    *    This parameter can be a value of @ref ETHEx_LPI_Event */
 
                 #if ( USE_HAL_ETH_REGISTER_CALLBACKS == 1 )
-                    void ( * TxCpltCallback )( struct __ETH_HandleTypeDef * heth );    /*!< ETH Tx Complete Callback */
-                    void ( * RxCpltCallback )( struct __ETH_HandleTypeDef * heth );    /*!< ETH Rx  Complete Callback     */
-                    void ( * DMAErrorCallback )( struct __ETH_HandleTypeDef * heth );  /*!< ETH DMA Error Callback   */
-                    void ( * MACErrorCallback )( struct __ETH_HandleTypeDef * heth );  /*!< ETH MAC Error Callback     */
-                    void ( * PMTCallback )( struct __ETH_HandleTypeDef * heth );       /*!< ETH Power Management Callback            */
-                    void ( * EEECallback )( struct __ETH_HandleTypeDef * heth );       /*!< ETH EEE Callback   */
-                    void ( * WakeUpCallback )( struct __ETH_HandleTypeDef * heth );    /*!< ETH Wake UP Callback   */
+                    void ( *TxCpltCallback )( struct __ETH_HandleTypeDef * heth );    /*!< ETH Tx Complete Callback */
+                    void ( *RxCpltCallback )( struct __ETH_HandleTypeDef * heth );    /*!< ETH Rx  Complete Callback     */
+                    void ( *DMAErrorCallback )( struct __ETH_HandleTypeDef * heth );  /*!< ETH DMA Error Callback   */
+                    void ( *MACErrorCallback )( struct __ETH_HandleTypeDef * heth );  /*!< ETH MAC Error Callback     */
+                    void ( *PMTCallback )( struct __ETH_HandleTypeDef * heth );       /*!< ETH Power Management Callback            */
+                    void ( *EEECallback )( struct __ETH_HandleTypeDef * heth );       /*!< ETH EEE Callback   */
+                    void ( *WakeUpCallback )( struct __ETH_HandleTypeDef * heth );    /*!< ETH Wake UP Callback   */
 
-                    void ( * MspInitCallback )( struct __ETH_HandleTypeDef * heth );   /*!< ETH Msp Init callback              */
-                    void ( * MspDeInitCallback )( struct __ETH_HandleTypeDef * heth ); /*!< ETH Msp DeInit callback            */
+                    void ( *MspInitCallback )( struct __ETH_HandleTypeDef * heth );   /*!< ETH Msp Init callback              */
+                    void ( *MspDeInitCallback )( struct __ETH_HandleTypeDef * heth ); /*!< ETH Msp DeInit callback            */
                 #endif /* USE_HAL_ETH_REGISTER_CALLBACKS */
             } ETH_HandleTypeDef;
 
@@ -614,7 +614,7 @@
                 FunctionalState BroadcastFilter;          /*!< Enable or Disable broadcast filter */
 
                 uint32_t ControlPacketsFilter;            /*!< Set the control packets filter
-                                                           *   This parameter can be a value of @ref ETH_Control_Packets_Filter */
+                                                           * This parameter can be a value of @ref ETH_Control_Packets_Filter */
             } ETH_MACFilterConfigTypeDef;
 
 /**
@@ -712,9 +712,9 @@
         #define ETH_DMATXNDESCRF_CIC_DISABLE                           ( ( uint32_t ) 0x00000000U ) /*!< Do Nothing: Checksum Engine is disabled */
         #define ETH_DMATXNDESCRF_CIC_IPHDR_INSERT                      ( ( uint32_t ) 0x00010000U ) /*!< Only IP header checksum calculation and insertion are enabled. */
         #define ETH_DMATXNDESCRF_CIC_IPHDR_PAYLOAD_INSERT              ( ( uint32_t ) 0x00020000U ) /*!< IP header checksum and payload checksum calculation and insertion are
-                                                                                                     *  enabled, but pseudo header checksum is not calculated in hardware */
+                                                                                                     * enabled, but pseudo header checksum is not calculated in hardware */
         #define ETH_DMATXNDESCRF_CIC_IPHDR_PAYLOAD_INSERT_PHDR_CALC    ( ( uint32_t ) 0x00030000U ) /*!< IP Header checksum and payload checksum calculation and insertion are
-                                                                                                     *  enabled, and pseudo header checksum is calculated in hardware. */
+                                                                                                     * enabled, and pseudo header checksum is calculated in hardware. */
         #define ETH_DMATXNDESCRF_TPL                                   ( ( uint32_t ) 0x0003FFFFU ) /*!< TCP Payload Length */
         #define ETH_DMATXNDESCRF_FL                                    ( ( uint32_t ) 0x00007FFFU ) /*!< Transmit End of Ring */
 

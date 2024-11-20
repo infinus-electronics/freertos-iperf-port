@@ -41,7 +41,7 @@ extern "C" {
 #endif
 
 #include "stm32h7xx_hal.h"
-#include "stdio.h"
+//#include "stdio.h"
 
 /* Define the byte order of the target MCU (the MCU FreeRTOS+TCP is executing
 on).  Valid options are pdFREERTOS_BIG_ENDIAN and pdFREERTOS_LITTLE_ENDIAN. */
@@ -59,7 +59,7 @@ used as defaults. */
 #define	ipconfigSOCK_DEFAULT_SEND_BLOCK_TIME	( 5000 )
 
 #define ipconfigZERO_COPY_RX_DRIVER			( 1 )
-#define ipconfigZERO_COPY_TX_DRIVER			( 1 )
+#define ipconfigZERO_COPY_TX_DRIVER			1
 
 /* Include support for LLMNR: Link-local Multicast Name Resolution
 (non-Microsoft) */
@@ -92,7 +92,7 @@ priority assigned to tasks that use the IP stack. */
 //#define ipconfigIP_TASK_PRIORITY			( configMAX_PRIORITIES - 2 )
 #define  ipconfigIP_TASK_PRIORITY			4
 #define  niEMAC_HANDLER_TASK_PRIORITY		5
-#define  ipconfigIPERF_PRIORITY_IPERF_TASK	6
+#define  ipconfigIPERF_PRIORITY_IPERF_TASK	3
 
 /* The size, in words (not bytes), of the stack allocated to the FreeRTOS+TCP
 task.  This setting is less important when the FreeRTOS Win32 simulator is used
@@ -354,7 +354,7 @@ messages. */
 #define ipconfigIPERF_DOES_ECHO_UDP		        0
 
 #define ipconfigIPERF_VERSION					3
-#define ipconfigIPERF_STACK_SIZE_IPERF_TASK		680
+#define ipconfigIPERF_STACK_SIZE_IPERF_TASK		1024
 
 #if 1
 #define ipconfigIPERF_TX_BUFSIZE				( 24 * ipconfigTCP_MSS )
