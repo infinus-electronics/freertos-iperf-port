@@ -1,0 +1,7 @@
+../Drivers/FreeRTOS_V10.3.1/portable/MemMang/heap_5.c:336:13:prvInsertBlockIntoFreeList	7
+../Drivers/FreeRTOS_V10.3.1/portable/MemMang/heap_5.c:134:7:pvPortMalloc	12
+../Drivers/FreeRTOS_V10.3.1/portable/MemMang/heap_5.c:275:6:vPortFree	8
+../Drivers/FreeRTOS_V10.3.1/portable/MemMang/heap_5.c:324:8:xPortGetFreeHeapSize	1
+../Drivers/FreeRTOS_V10.3.1/portable/MemMang/heap_5.c:330:8:xPortGetMinimumEverFreeHeapSize	1
+../Drivers/FreeRTOS_V10.3.1/portable/MemMang/heap_5.c:397:6:vPortDefineHeapRegions	11
+../Drivers/FreeRTOS_V10.3.1/portable/MemMang/heap_5.c:491:6:vPortGetHeapStats	4

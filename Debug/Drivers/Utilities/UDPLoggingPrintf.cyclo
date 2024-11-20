@@ -1,0 +1,6 @@
+../Drivers/Utilities/UDPLoggingPrintf.c:365:6:vUDPLoggingTaskCreate	1
+../Drivers/Utilities/UDPLoggingPrintf.c:372:11:xLoggingGetSocket	1
+../Drivers/Utilities/UDPLoggingPrintf.c:389:28:vUDPLoggingHook	1
+../Drivers/Utilities/UDPLoggingPrintf.c:343:5:lUDPLoggingPrintf	9
+../Drivers/Utilities/UDPLoggingPrintf.c:400:13:prvLoggingTask	10
+../Drivers/Utilities/UDPLoggingPrintf.c:608:6:vUDPLoggingFlush	2

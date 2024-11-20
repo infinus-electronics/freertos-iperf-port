@@ -1,0 +1,17 @@
+../Drivers/FreeRTOS-Plus-TCP/source/FreeRTOS_TCP_WIN.c:1469:21:prvTCPWindowTxHasSpace	6
+../Drivers/FreeRTOS-Plus-TCP/source/FreeRTOS_TCP_WIN.c:724:15:vTCPWindowFree	3
+../Drivers/FreeRTOS-Plus-TCP/source/FreeRTOS_TCP_WIN.c:1815:19:prvTCPWindowTxCheckAck	23
+../Drivers/FreeRTOS-Plus-TCP/source/FreeRTOS_TCP_WIN.c:541:25:xTCPWindowNew	5
+../Drivers/FreeRTOS-Plus-TCP/source/FreeRTOS_TCP_WIN.c:422:17:vListInsertGeneric	1
+../Drivers/FreeRTOS-Plus-TCP/source/FreeRTOS_TCP_WIN.c:618:14:xTCPWindowRxEmpty	3
+../Drivers/FreeRTOS-Plus-TCP/source/FreeRTOS_TCP_WIN.c:760:8:vTCPWindowDestroy	9
+../Drivers/FreeRTOS-Plus-TCP/source/FreeRTOS_TCP_WIN.c:806:7:vTCPWindowCreate	9
+../Drivers/FreeRTOS-Plus-TCP/source/FreeRTOS_TCP_WIN.c:852:7:vTCPWindowInit	5
+../Drivers/FreeRTOS-Plus-TCP/source/FreeRTOS_TCP_WIN.c:914:8:vTCPSegmentCleanup	2
+../Drivers/FreeRTOS-Plus-TCP/source/FreeRTOS_TCP_WIN.c:1026:11:lTCPWindowRxCheck	28
+../Drivers/FreeRTOS-Plus-TCP/source/FreeRTOS_TCP_WIN.c:1316:11:lTCPWindowTxAdd	18
+../Drivers/FreeRTOS-Plus-TCP/source/FreeRTOS_TCP_WIN.c:1451:14:xTCPWindowTxDone	1
+../Drivers/FreeRTOS-Plus-TCP/source/FreeRTOS_TCP_WIN.c:1540:14:xTCPWindowTxHasData	9
+../Drivers/FreeRTOS-Plus-TCP/source/FreeRTOS_TCP_WIN.c:1628:12:ulTCPWindowTxGet	21
+../Drivers/FreeRTOS-Plus-TCP/source/FreeRTOS_TCP_WIN.c:2053:12:ulTCPWindowTxAck	2
+../Drivers/FreeRTOS-Plus-TCP/source/FreeRTOS_TCP_WIN.c:2089:12:ulTCPWindowTxSack	10

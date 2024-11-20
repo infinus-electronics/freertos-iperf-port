@@ -1,0 +1,8 @@
+../Drivers/FreeRTOS-Plus-TCP/source/portable/BufferManagement/BufferAllocation_1.c:162:12:xNetworkBuffersInitialise	5
+../Drivers/FreeRTOS-Plus-TCP/source/portable/BufferManagement/BufferAllocation_1.c:212:28:pxGetNetworkBufferWithDescriptor	5
+../Drivers/FreeRTOS-Plus-TCP/source/portable/BufferManagement/BufferAllocation_1.c:297:28:pxNetworkBufferGetFromISR	3
+../Drivers/FreeRTOS-Plus-TCP/source/portable/BufferManagement/BufferAllocation_1.c:335:12:vNetworkBufferReleaseFromISR	1
+../Drivers/FreeRTOS-Plus-TCP/source/portable/BufferManagement/BufferAllocation_1.c:354:6:vReleaseNetworkBufferAndDescriptor	2
+../Drivers/FreeRTOS-Plus-TCP/source/portable/BufferManagement/BufferAllocation_1.c:394:13:uxGetMinimumFreeNetworkBuffers	1
+../Drivers/FreeRTOS-Plus-TCP/source/portable/BufferManagement/BufferAllocation_1.c:400:13:uxGetNumberOfFreeNetworkBuffers	1
+../Drivers/FreeRTOS-Plus-TCP/source/portable/BufferManagement/BufferAllocation_1.c:405:28:pxResizeNetworkBufferWithDescriptor	1

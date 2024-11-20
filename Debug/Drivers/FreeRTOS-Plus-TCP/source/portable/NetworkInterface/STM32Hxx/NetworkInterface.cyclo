@@ -1,0 +1,13 @@
+../Drivers/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/STM32Hxx/NetworkInterface.c:516:19:prvNetworkInterfaceInput	8
+../Drivers/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/STM32Hxx/NetworkInterface.c:714:16:ETH_PHY_IO_WriteReg	1
+../Drivers/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/STM32Hxx/NetworkInterface.c:692:16:ETH_PHY_IO_ReadReg	1
+../Drivers/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/STM32Hxx/NetworkInterface.c:454:13:prvEthernetUpdateConfig	2
+../Drivers/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/STM32Hxx/NetworkInterface.c:838:13:prvEMACHandlerTask	11
+../Drivers/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/STM32Hxx/NetworkInterface.c:210:12:xNetworkInterfaceInitialise	11
+../Drivers/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/STM32Hxx/NetworkInterface.c:328:12:xGetPhyLinkStatus	1
+../Drivers/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/STM32Hxx/NetworkInterface.c:345:12:xNetworkInterfaceOutput	6
+../Drivers/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/STM32Hxx/NetworkInterface.c:739:6:ETH_IRQHandler	1
+../Drivers/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/STM32Hxx/NetworkInterface.c:762:6:HAL_ETH_TxCpltCallback	3
+../Drivers/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/STM32Hxx/NetworkInterface.c:769:6:HAL_ETH_RxCpltCallback	3
+../Drivers/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/STM32Hxx/NetworkInterface.c:776:6:HAL_ETH_DMAErrorCallback	3
+../Drivers/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/STM32Hxx/NetworkInterface.c:793:6:vNetworkInterfaceAllocateRAMToBuffers	2

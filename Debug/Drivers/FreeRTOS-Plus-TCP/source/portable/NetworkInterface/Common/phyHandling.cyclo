@@ -1,0 +1,6 @@
+../Drivers/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/Common/phyHandling.c:169:6:vPhyInitialise	1
+../Drivers/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/Common/phyHandling.c:179:12:xPhyDiscover	6
+../Drivers/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/Common/phyHandling.c:290:12:xPhyConfigure	24
+../Drivers/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/Common/phyHandling.c:455:12:xPhyFixedValue	5
+../Drivers/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/Common/phyHandling.c:488:12:xPhyStartAutoNegotiation	27
+../Drivers/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/Common/phyHandling.c:660:12:xPhyCheckLinkStatus	12

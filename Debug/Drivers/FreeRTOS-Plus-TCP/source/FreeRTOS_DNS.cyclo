@@ -1,0 +1,7 @@
+../Drivers/FreeRTOS-Plus-TCP/source/FreeRTOS_DNS.c:1189:17:prvSkipNameField	10
+../Drivers/FreeRTOS-Plus-TCP/source/FreeRTOS_DNS.c:1998:21:prvProcessDNSCache.isra	13
+../Drivers/FreeRTOS-Plus-TCP/source/FreeRTOS_DNS.c:1335:19:prvParseDNSReply	46
+../Drivers/FreeRTOS-Plus-TCP/source/FreeRTOS_DNS.c:229:8:FreeRTOS_dnsclear	1
+../Drivers/FreeRTOS-Plus-TCP/source/FreeRTOS_DNS.c:399:12:FreeRTOS_dnslookup	1
+../Drivers/FreeRTOS-Plus-TCP/source/FreeRTOS_DNS.c:627:12:FreeRTOS_gethostbyname	24
+../Drivers/FreeRTOS-Plus-TCP/source/FreeRTOS_DNS.c:1268:11:ulDNSHandlePacket	3
