@@ -7,47 +7,49 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   1 .text         0000f97c  080002a0  080002a0  000012a0  2**4
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       000021fc  0800fc1c  0800fc1c  00010c1c  2**2
+  2 .rodata       00002204  0800fc1c  0800fc1c  00010c1c  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM          00000008  08011e18  08011e18  00012e18  2**2
+  3 .ARM          00000008  08011e20  08011e20  00012e20  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  4 .init_array   00000004  08011e20  08011e20  00012e20  2**2
+  4 .init_array   00000004  08011e28  08011e28  00012e28  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  5 .fini_array   00000004  08011e24  08011e24  00012e24  2**2
+  5 .fini_array   00000004  08011e2c  08011e2c  00012e2c  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  6 .data         00000098  20000000  08011e28  00013000  2**2
+  6 .data         00000098  20000000  08011e30  00013000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  7 .bss          000012b0  20000098  08011ec0  00013098  2**3
+  7 .bss          000012b0  20000098  08011ec8  00013098  2**3
                   ALLOC
-  8 ._user_heap_stack 00000600  20001348  08011ec0  00013348  2**0
+  8 ._user_heap_stack 00000600  20001348  08011ec8  00013348  2**0
                   ALLOC
-  9 .ethernet_data 000580c0  24000000  24000000  00014000  2**5
+  9 .dtcm_data    00018000  20001948  08011ec8  00013948  2**2
                   CONTENTS, ALLOC, LOAD, DATA
- 10 .ram3_data    00008000  38000000  38000000  0006d000  2**2
+ 10 .ethernet_data 000580c0  24000000  24000000  0002c000  2**5
                   CONTENTS, ALLOC, LOAD, DATA
- 11 .ARM.attributes 0000002e  00000000  00000000  00075000  2**0
+ 11 .ram3_data    00008000  38000000  38000000  00085000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+ 12 .ARM.attributes 0000002e  00000000  00000000  0008d000  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00046e06  00000000  00000000  0007502e  2**0
+ 13 .debug_info   00046e2e  00000000  00000000  0008d02e  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 0000867c  00000000  00000000  000bbe34  2**0
+ 14 .debug_abbrev 0000867c  00000000  00000000  000d3e5c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_loclists 0001f882  00000000  00000000  000c44b0  2**0
+ 15 .debug_loclists 0001f882  00000000  00000000  000dc4d8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_aranges 00001bb0  00000000  00000000  000e3d38  2**3
+ 16 .debug_aranges 00001bb0  00000000  00000000  000fbd60  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_rnglists 000035b6  00000000  00000000  000e58e8  2**0
+ 17 .debug_rnglists 000035b6  00000000  00000000  000fd910  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  00040bb8  00000000  00000000  000e8e9e  2**0
+ 18 .debug_macro  00040bb8  00000000  00000000  00100ec6  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   0003fd55  00000000  00000000  00129a56  2**0
+ 19 .debug_line   0003fd55  00000000  00000000  00141a7e  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    001803f6  00000000  00000000  001697ab  2**0
+ 20 .debug_str    00180401  00000000  00000000  001817d3  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000043  00000000  00000000  002e9ba1  2**0
+ 21 .comment      00000043  00000000  00000000  00301bd4  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  000060f4  00000000  00000000  002e9be4  2**2
+ 22 .debug_frame  000060f4  00000000  00000000  00301c18  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 0000006f  00000000  00000000  002efcd8  2**0
+ 23 .debug_line_str 0000006f  00000000  00000000  00307d0c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -750,16 +752,16 @@ static NetworkBufferDescriptor_t *pxDescriptor = NULL;
  80008a0:	69747268 	.word	0x69747268
  80008a4:	646e6172 	.word	0x646e6172
  80008a8:	72657069 	.word	0x72657069
- 80008ac:	0800fd48 	.word	0x0800fd48
+ 80008ac:	0800fd50 	.word	0x0800fd50
  80008b0:	200000cc 	.word	0x200000cc
- 80008b4:	0800fc6c 	.word	0x0800fc6c
+ 80008b4:	0800fc74 	.word	0x0800fc74
  80008b8:	20000004 	.word	0x20000004
- 80008bc:	0800fc80 	.word	0x0800fc80
- 80008c0:	0800fc98 	.word	0x0800fc98
- 80008c4:	0800fcbc 	.word	0x0800fcbc
- 80008c8:	08011a20 	.word	0x08011a20
- 80008cc:	0800fcf4 	.word	0x0800fcf4
- 80008d0:	0800fd18 	.word	0x0800fd18
+ 80008bc:	0800fc88 	.word	0x0800fc88
+ 80008c0:	0800fca0 	.word	0x0800fca0
+ 80008c4:	0800fcc4 	.word	0x0800fcc4
+ 80008c8:	08011a28 	.word	0x08011a28
+ 80008cc:	0800fcfc 	.word	0x0800fcfc
+ 80008d0:	0800fd20 	.word	0x0800fd20
  80008d4:	200000c8 	.word	0x200000c8
  80008d8:	200000b8 	.word	0x200000b8
  80008dc:	200000b4 	.word	0x200000b4
@@ -935,7 +937,7 @@ void Error_Handler(void)
 080009ec <main>:
 {
  80009ec:	b580      	push	{r7, lr}
- 80009ee:	b092      	sub	sp, #72	@ 0x48
+ 80009ee:	b094      	sub	sp, #80	@ 0x50
     HAL_MPU_Disable();
  80009f0:	f009 fcdc 	bl	800a3ac <HAL_MPU_Disable>
     MPU_InitStruct.BaseAddress      = 0x24000000;               // AXI memory where ETH descriptors and buffers are stored
@@ -1077,8 +1079,8 @@ __STATIC_FORCEINLINE void __DSB(void)
 	HeapRegion_t xHeapRegions[] = {
  8000ab0:	ce0f      	ldmia	r6!, {r0, r1, r2, r3}
  8000ab2:	e8ac 000f 	stmia.w	ip!, {r0, r1, r2, r3}
- 8000ab6:	e896 0003 	ldmia.w	r6, {r0, r1}
- 8000aba:	e88c 0003 	stmia.w	ip, {r0, r1}
+ 8000ab6:	e896 000f 	ldmia.w	r6, {r0, r1, r2, r3}
+ 8000aba:	e88c 000f 	stmia.w	ip, {r0, r1, r2, r3}
 	vPortDefineHeapRegions( xHeapRegions );
  8000abe:	a80c      	add	r0, sp, #48	@ 0x30
  8000ac0:	f009 fb0c 	bl	800a0dc <vPortDefineHeapRegions>
@@ -1347,10 +1349,10 @@ __STATIC_FORCEINLINE void __DSB(void)
  8000cd4:	58020000 	.word	0x58020000
  8000cd8:	40004800 	.word	0x40004800
  8000cdc:	0501a8c0 	.word	0x0501a8c0
- 8000ce0:	0800fd58 	.word	0x0800fd58
- 8000ce4:	0800fdf0 	.word	0x0800fdf0
+ 8000ce0:	0800fd60 	.word	0x0800fd60
+ 8000ce4:	0800fdf8 	.word	0x0800fdf8
  8000ce8:	200000d4 	.word	0x200000d4
- 8000cec:	0800fd74 	.word	0x0800fd74
+ 8000cec:	0800fd7c 	.word	0x0800fd7c
  8000cf0:	080006a1 	.word	0x080006a1
 
 08000cf4 <ulGetRunTimeCounterValue>:
@@ -1479,10 +1481,10 @@ volatile unsigned long ul = 0;
  8000dae:	bf00      	nop
  8000db0:	200000d0 	.word	0x200000d0
  8000db4:	200000c8 	.word	0x200000c8
- 8000db8:	0800fd7c 	.word	0x0800fd7c
- 8000dbc:	0800fd8c 	.word	0x0800fd8c
- 8000dc0:	0800fda0 	.word	0x0800fda0
- 8000dc4:	0800fdb8 	.word	0x0800fdb8
+ 8000db8:	0800fd84 	.word	0x0800fd84
+ 8000dbc:	0800fd94 	.word	0x0800fd94
+ 8000dc0:	0800fda8 	.word	0x0800fda8
+ 8000dc4:	0800fdc0 	.word	0x0800fdc0
 
 08000dc8 <xApplicationDNSQueryHook>:
 	if( strcasecmp( pcName, pcApplicationHostnameHook() ) == 0 )
@@ -1495,7 +1497,7 @@ volatile unsigned long ul = 0;
  8000dd0:	fab0 f080 	clz	r0, r0
  8000dd4:	0940      	lsrs	r0, r0, #5
  8000dd6:	bd08      	pop	{r3, pc}
- 8000dd8:	0800fdd0 	.word	0x0800fdd0
+ 8000dd8:	0800fdd8 	.word	0x0800fdd8
 
 08000ddc <xApplicationGetRandomNumber>:
 BaseType_t xApplicationGetRandomNumber( uint32_t *pulNumber ){
@@ -1539,7 +1541,7 @@ BaseType_t xApplicationGetRandomNumber( uint32_t *pulNumber ){
  8000e10:	4801      	ldr	r0, [pc, #4]	@ (8000e18 <vApplicationPingReplyHook+0x8>)
  8000e12:	f00c b853 	b.w	800cebc <lUDPLoggingPrintf>
  8000e16:	bf00      	nop
- 8000e18:	0800fdd8 	.word	0x0800fdd8
+ 8000e18:	0800fde0 	.word	0x0800fde0
 
 08000e1c <__io_putchar>:
 {
@@ -2477,7 +2479,7 @@ LoopFillZerobss:
   ldr r1, =_edata
  80012a8:	20000098 	.word	0x20000098
   ldr r2, =_sidata
- 80012ac:	08011e28 	.word	0x08011e28
+ 80012ac:	08011e30 	.word	0x08011e30
   ldr r2, =_sbss
  80012b0:	20000098 	.word	0x20000098
   ldr r4, =_ebss
@@ -2822,7 +2824,7 @@ Infinite_Loop:
 						pxARPHeader->ulTargetProtocolAddress = 0UL;
  80014aa:	e7ea      	b.n	8001482 <eARPProcessPacket+0x5a>
  80014ac:	20000014 	.word	0x20000014
- 80014b0:	080100d0 	.word	0x080100d0
+ 80014b0:	080100d8 	.word	0x080100d8
 
 080014b4 <eARPGetCacheEntry>:
  *         addressing needs a gateway but there isn't a gateway defined) then return
@@ -2989,10 +2991,10 @@ eARPLookupResult_t eARPGetCacheEntry( uint32_t * pulIPAddress,
 				if( eReturn == eARPCacheHit )
  8001586:	e7a0      	b.n	80014ca <eARPGetCacheEntry+0x16>
  8001588:	fc0000e0 	.word	0xfc0000e0
- 800158c:	0800fee4 	.word	0x0800fee4
+ 800158c:	0800feec 	.word	0x0800feec
  8001590:	20000344 	.word	0x20000344
  8001594:	20000014 	.word	0x20000014
- 8001598:	080100d0 	.word	0x080100d0
+ 8001598:	080100d8 	.word	0x080100d8
  800159c:	200001e8 	.word	0x200001e8
 
 080015a0 <vARPGenerateRequestPacket>:
@@ -3087,9 +3089,9 @@ void vARPGenerateRequestPacket( NetworkBufferDescriptor_t * const pxNetworkBuffe
  8001614:	4803      	ldr	r0, [pc, #12]	@ (8001624 <vARPGenerateRequestPacket+0x84>)
  8001616:	f7ff fb6f 	bl	8000cf8 <vAssertCalled>
  800161a:	e7c4      	b.n	80015a6 <vARPGenerateRequestPacket+0x6>
- 800161c:	0800fc34 	.word	0x0800fc34
+ 800161c:	0800fc3c 	.word	0x0800fc3c
  8001620:	20000014 	.word	0x20000014
- 8001624:	0800fe08 	.word	0x0800fe08
+ 8001624:	0800fe10 	.word	0x0800fe10
 
 08001628 <FreeRTOS_OutputARPRequest>:
 {
@@ -3602,12 +3604,12 @@ void FreeRTOS_ClearARP( void )
  800190a:	f883 1028 	strb.w	r1, [r3, #40]	@ 0x28
  800190e:	e7e3      	b.n	80018d8 <prvProcessDNSCache.isra.0+0x134>
  8001910:	10624dd3 	.word	0x10624dd3
- 8001914:	0800fe3c 	.word	0x0800fe3c
- 8001918:	0800fe7c 	.word	0x0800fe7c
- 800191c:	0800fe48 	.word	0x0800fe48
+ 8001914:	0800fe44 	.word	0x0800fe44
+ 8001918:	0800fe84 	.word	0x0800fe84
+ 800191c:	0800fe50 	.word	0x0800fe50
  8001920:	20000230 	.word	0x20000230
  8001924:	20000254 	.word	0x20000254
- 8001928:	0800fe40 	.word	0x0800fe40
+ 8001928:	0800fe48 	.word	0x0800fe48
  800192c:	20000234 	.word	0x20000234
 
 08001930 <prvParseDNSReply>:
@@ -4124,11 +4126,11 @@ void FreeRTOS_ClearARP( void )
 										FreeRTOS_printf( ( "DNS[0x%04lX]: The answer to '%s' (%s) will%s be stored\n",
  8001c8c:	4b04      	ldr	r3, [pc, #16]	@ (8001ca0 <prvParseDNSReply+0x370>)
  8001c8e:	e7e2      	b.n	8001c56 <prvParseDNSReply+0x326>
- 8001c90:	080113c4 	.word	0x080113c4
+ 8001c90:	080113cc 	.word	0x080113cc
  8001c94:	20000014 	.word	0x20000014
- 8001c98:	0800fea4 	.word	0x0800fea4
- 8001c9c:	0800feac 	.word	0x0800feac
- 8001ca0:	08011450 	.word	0x08011450
+ 8001c98:	0800feac 	.word	0x0800feac
+ 8001c9c:	0800feb4 	.word	0x0800feb4
+ 8001ca0:	08011458 	.word	0x08011458
  8001ca4:	20000358 	.word	0x20000358
 
 08001ca8 <ulDNSHandlePacket>:
@@ -4291,9 +4293,9 @@ void FreeRTOS_NetworkDown( void )
  8001d68:	bd08      	pop	{r3, pc}
  8001d6a:	bf00      	nop
  8001d6c:	2000035c 	.word	0x2000035c
- 8001d70:	080100c8 	.word	0x080100c8
+ 8001d70:	080100d0 	.word	0x080100d0
  8001d74:	2000032c 	.word	0x2000032c
- 8001d78:	0800feec 	.word	0x0800feec
+ 8001d78:	0800fef4 	.word	0x0800fef4
 
 08001d7c <pxDuplicateNetworkBufferWithDescriptor>:
 {
@@ -4501,16 +4503,16 @@ BaseType_t xIPIsNetworkTaskReady( void )
  8001ece:	e7e9      	b.n	8001ea4 <FreeRTOS_IPInit+0xd8>
  8001ed0:	200002f4 	.word	0x200002f4
  8001ed4:	2000035c 	.word	0x2000035c
- 8001ed8:	0800ff18 	.word	0x0800ff18
+ 8001ed8:	0800ff20 	.word	0x0800ff20
  8001edc:	20000328 	.word	0x20000328
- 8001ee0:	0800ff4c 	.word	0x0800ff4c
+ 8001ee0:	0800ff54 	.word	0x0800ff54
  8001ee4:	20000344 	.word	0x20000344
  8001ee8:	20000330 	.word	0x20000330
  8001eec:	20000014 	.word	0x20000014
- 8001ef0:	0800ff54 	.word	0x0800ff54
+ 8001ef0:	0800ff5c 	.word	0x0800ff5c
  8001ef4:	080021b9 	.word	0x080021b9
- 8001ef8:	0800ff5c 	.word	0x0800ff5c
- 8001efc:	0800ff94 	.word	0x0800ff94
+ 8001ef8:	0800ff64 	.word	0x0800ff64
+ 8001efc:	0800ff9c 	.word	0x0800ff9c
 
 08001f00 <FreeRTOS_GetAddressConfiguration>:
 	if( pulIPAddress != NULL )
@@ -4632,7 +4634,7 @@ BaseType_t xIPIsNetworkTaskReady( void )
  8001fa8:	200002f4 	.word	0x200002f4
  8001fac:	2000035c 	.word	0x2000035c
  8001fb0:	200002f8 	.word	0x200002f8
- 8001fb4:	0800feec 	.word	0x0800feec
+ 8001fb4:	0800fef4 	.word	0x0800fef4
 
 08001fb8 <xSendEventStructToIPTask>:
 	return xIPTaskInitialised;
@@ -4703,7 +4705,7 @@ BaseType_t xIPIsNetworkTaskReady( void )
  800201c:	2000035c 	.word	0x2000035c
  8002020:	20000328 	.word	0x20000328
  8002024:	200002f8 	.word	0x200002f8
- 8002028:	0800feec 	.word	0x0800feec
+ 8002028:	0800fef4 	.word	0x0800fef4
 
 0800202c <prvProcessNetworkDownEvent>:
 {
@@ -4787,7 +4789,7 @@ BaseType_t xIPIsNetworkTaskReady( void )
  800209e:	bf00      	nop
  80020a0:	2000030c 	.word	0x2000030c
  80020a4:	200002ec 	.word	0x200002ec
- 80020a8:	080100c8 	.word	0x080100c8
+ 80020a8:	080100d0 	.word	0x080100d0
  80020ac:	2000032c 	.word	0x2000032c
  80020b0:	20000320 	.word	0x20000320
  80020b4:	20000310 	.word	0x20000310
@@ -4830,8 +4832,8 @@ BaseType_t xIPIsNetworkTaskReady( void )
 }
  80020f6:	bd10      	pop	{r4, pc}
  80020f8:	20000014 	.word	0x20000014
- 80020fc:	080100d0 	.word	0x080100d0
- 8002100:	0800fee4 	.word	0x0800fee4
+ 80020fc:	080100d8 	.word	0x080100d8
+ 8002100:	0800feec 	.word	0x0800feec
 
 08002104 <xIsIPv4Multicast>:
 	uint32_t ulIP = FreeRTOS_ntohl( ulIPAddress );
@@ -4958,7 +4960,7 @@ BaseType_t xIPIsNetworkTaskReady( void )
 }
  80021ae:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
  80021b0:	20000014 	.word	0x20000014
- 80021b4:	0800ffd0 	.word	0x0800ffd0
+ 80021b4:	0800ffd8 	.word	0x0800ffd8
 
 080021b8 <prvIPTask>:
 {
@@ -5381,10 +5383,10 @@ BaseType_t xIPIsNetworkTaskReady( void )
  80024ac:	2000035c 	.word	0x2000035c
  80024b0:	20000324 	.word	0x20000324
  80024b4:	2000030c 	.word	0x2000030c
- 80024b8:	0800fff4 	.word	0x0800fff4
+ 80024b8:	0800fffc 	.word	0x0800fffc
  80024bc:	20000320 	.word	0x20000320
- 80024c0:	08010008 	.word	0x08010008
- 80024c4:	0800ff18 	.word	0x0800ff18
+ 80024c0:	08010010 	.word	0x08010010
+ 80024c4:	0800ff20 	.word	0x0800ff20
  80024c8:	2000000c 	.word	0x2000000c
  80024cc:	2000032c 	.word	0x2000032c
 						if( pxIPPacket->xIPHeader.ucProtocol == ( uint8_t ) ipPROTOCOL_UDP )
@@ -5585,7 +5587,7 @@ BaseType_t xIPIsNetworkTaskReady( void )
 	switch( eReturned )
  800263a:	e6bb      	b.n	80023b4 <prvIPTask+0x1fc>
  800263c:	200002f0 	.word	0x200002f0
- 8002640:	08010028 	.word	0x08010028
+ 8002640:	08010030 	.word	0x08010030
  8002644:	20000014 	.word	0x20000014
 
 08002648 <vPrintResourceStats>:
@@ -5668,9 +5670,9 @@ BaseType_t xIPIsNetworkTaskReady( void )
  80026c0:	200002e8 	.word	0x200002e8
  80026c4:	2000000c 	.word	0x2000000c
  80026c8:	200002e4 	.word	0x200002e4
- 80026cc:	0801008c 	.word	0x0801008c
- 80026d0:	080100ac 	.word	0x080100ac
- 80026d4:	08010068 	.word	0x08010068
+ 80026cc:	08010094 	.word	0x08010094
+ 80026d0:	080100b4 	.word	0x080100b4
+ 80026d4:	08010070 	.word	0x08010070
 
 080026d8 <FreeRTOS_GetIPAddress>:
 	return *ipLOCAL_IP_ADDRESS_POINTER;
@@ -5853,8 +5855,8 @@ BaseType_t xIPIsNetworkTaskReady( void )
  80027ae:	bf00      	nop
  80027b0:	51eb851f 	.word	0x51eb851f
  80027b4:	20000398 	.word	0x20000398
- 80027b8:	080100fc 	.word	0x080100fc
- 80027bc:	080100d8 	.word	0x080100d8
+ 80027b8:	08010104 	.word	0x08010104
+ 80027bc:	080100e0 	.word	0x080100e0
 
 080027c0 <prvFindSelectedSocket>:
 	{
@@ -5896,7 +5898,7 @@ BaseType_t xIPIsNetworkTaskReady( void )
  80027fe:	b005      	add	sp, #20
  8002800:	bd30      	pop	{r4, r5, pc}
  8002802:	bf00      	nop
- 8002804:	08010138 	.word	0x08010138
+ 8002804:	08010140 	.word	0x08010140
 
 08002808 <vNetworkSocketsInit>:
 	vListInitialise( &xBoundUDPSocketsList );
@@ -6072,7 +6074,7 @@ BaseType_t xIPIsNetworkTaskReady( void )
  8002930:	84ea      	strh	r2, [r5, #38]	@ 0x26
 						if( xProtocol == FREERTOS_IPPROTO_TCP )
  8002932:	e780      	b.n	8002836 <FreeRTOS_socket+0x12>
- 8002934:	08010158 	.word	0x08010158
+ 8002934:	08010160 	.word	0x08010160
  8002938:	20000378 	.word	0x20000378
  800293c:	20000364 	.word	0x20000364
  8002940:	05b405b4 	.word	0x05b405b4
@@ -6150,7 +6152,7 @@ BaseType_t xIPIsNetworkTaskReady( void )
  80029a8:	f7fe f9a6 	bl	8000cf8 <vAssertCalled>
  80029ac:	e7e4      	b.n	8002978 <FreeRTOS_FD_SET+0xc>
  80029ae:	bf00      	nop
- 80029b0:	08010158 	.word	0x08010158
+ 80029b0:	08010160 	.word	0x08010160
 
 080029b4 <FreeRTOS_FD_CLR>:
 	{
@@ -6190,7 +6192,7 @@ BaseType_t xIPIsNetworkTaskReady( void )
  80029ec:	f7fe f984 	bl	8000cf8 <vAssertCalled>
  80029f0:	e7e6      	b.n	80029c0 <FreeRTOS_FD_CLR+0xc>
  80029f2:	bf00      	nop
- 80029f4:	08010158 	.word	0x08010158
+ 80029f4:	08010160 	.word	0x08010160
 
 080029f8 <FreeRTOS_select>:
 	{
@@ -6243,7 +6245,7 @@ BaseType_t xIPIsNetworkTaskReady( void )
  8002a44:	4801      	ldr	r0, [pc, #4]	@ (8002a4c <FreeRTOS_select+0x54>)
  8002a46:	f7fe f957 	bl	8000cf8 <vAssertCalled>
  8002a4a:	e7da      	b.n	8002a02 <FreeRTOS_select+0xa>
- 8002a4c:	08010158 	.word	0x08010158
+ 8002a4c:	08010160 	.word	0x08010160
 
 08002a50 <FreeRTOS_recvfrom>:
 {
@@ -6441,9 +6443,9 @@ BaseType_t xIPIsNetworkTaskReady( void )
 			xReturn = -pdFREERTOS_ERRNO_ECANCELED;
  8002b92:	f06f 008b 	mvn.w	r0, #139	@ 0x8b
  8002b96:	e7ea      	b.n	8002b6e <FreeRTOS_bind+0x4e>
- 8002b98:	08010158 	.word	0x08010158
- 8002b9c:	08010190 	.word	0x08010190
- 8002ba0:	080101bc 	.word	0x080101bc
+ 8002b98:	08010160 	.word	0x08010160
+ 8002b9c:	08010198 	.word	0x08010198
+ 8002ba0:	080101c4 	.word	0x080101c4
 
 08002ba4 <FreeRTOS_sendto>:
 {
@@ -6600,7 +6602,7 @@ BaseType_t xIPIsNetworkTaskReady( void )
 					lReturn = ( int32_t ) uxTotalDataLength;
  8002ca0:	4620      	mov	r0, r4
  8002ca2:	e791      	b.n	8002bc8 <FreeRTOS_sendto+0x24>
- 8002ca4:	08010158 	.word	0x08010158
+ 8002ca4:	08010160 	.word	0x08010160
 
 08002ca8 <vSocketBind>:
 {
@@ -6790,10 +6792,10 @@ BaseType_t xIPIsNetworkTaskReady( void )
  8002df2:	bf00      	nop
  8002df4:	20000378 	.word	0x20000378
  8002df8:	20000364 	.word	0x20000364
- 8002dfc:	080101e0 	.word	0x080101e0
- 8002e00:	080101e4 	.word	0x080101e4
- 8002e04:	080101e8 	.word	0x080101e8
- 8002e08:	08010158 	.word	0x08010158
+ 8002dfc:	080101e8 	.word	0x080101e8
+ 8002e00:	080101ec 	.word	0x080101ec
+ 8002e04:	080101f0 	.word	0x080101f0
+ 8002e08:	08010160 	.word	0x08010160
  8002e0c:	04104114 	.word	0x04104114
 
 08002e10 <FreeRTOS_closesocket>:
@@ -6853,7 +6855,7 @@ BaseType_t xIPIsNetworkTaskReady( void )
  8002e64:	b003      	add	sp, #12
  8002e66:	f85d fb04 	ldr.w	pc, [sp], #4
  8002e6a:	bf00      	nop
- 8002e6c:	0801020c 	.word	0x0801020c
+ 8002e6c:	08010214 	.word	0x08010214
 
 08002e70 <vSocketClose>:
 {
@@ -7008,10 +7010,10 @@ BaseType_t xIPIsNetworkTaskReady( void )
  8002f6c:	d197      	bne.n	8002e9e <vSocketClose+0x2e>
  8002f6e:	e79c      	b.n	8002eaa <vSocketClose+0x3a>
  8002f70:	20000364 	.word	0x20000364
- 8002f74:	0801022c 	.word	0x0801022c
- 8002f78:	08011450 	.word	0x08011450
- 8002f7c:	08010230 	.word	0x08010230
- 8002f80:	0801025c 	.word	0x0801025c
+ 8002f74:	08010234 	.word	0x08010234
+ 8002f78:	08011458 	.word	0x08011458
+ 8002f7c:	08010238 	.word	0x08010238
+ 8002f80:	08010264 	.word	0x08010264
 
 08002f84 <FreeRTOS_setsockopt>:
 	if( ( pxSocket == NULL ) || ( pxSocket == FREERTOS_INVALID_SOCKET ) )
@@ -7389,14 +7391,14 @@ BaseType_t xIPIsNetworkTaskReady( void )
  8003224:	e73f      	b.n	80030a6 <FreeRTOS_setsockopt+0x122>
  8003226:	bf00      	nop
  8003228:	fffbfeff 	.word	0xfffbfeff
- 800322c:	08010374 	.word	0x08010374
- 8003230:	0801029c 	.word	0x0801029c
- 8003234:	080102a0 	.word	0x080102a0
- 8003238:	08010304 	.word	0x08010304
- 800323c:	080102d8 	.word	0x080102d8
- 8003240:	080102a4 	.word	0x080102a4
- 8003244:	08010350 	.word	0x08010350
- 8003248:	08010328 	.word	0x08010328
+ 800322c:	0801037c 	.word	0x0801037c
+ 8003230:	080102a4 	.word	0x080102a4
+ 8003234:	080102a8 	.word	0x080102a8
+ 8003238:	0801030c 	.word	0x0801030c
+ 800323c:	080102e0 	.word	0x080102e0
+ 8003240:	080102ac 	.word	0x080102ac
+ 8003244:	08010358 	.word	0x08010358
+ 8003248:	08010330 	.word	0x08010330
 
 0800324c <pxUDPSocketLookup>:
 {
@@ -7440,7 +7442,7 @@ BaseType_t xIPIsNetworkTaskReady( void )
  8003282:	f7fd fd39 	bl	8000cf8 <vAssertCalled>
  8003286:	e7f4      	b.n	8003272 <pxUDPSocketLookup+0x26>
  8003288:	20000378 	.word	0x20000378
- 800328c:	08010158 	.word	0x08010158
+ 800328c:	08010160 	.word	0x08010160
 
 08003290 <FreeRTOS_inet_ntoa>:
 {
@@ -8246,7 +8248,7 @@ BaseType_t xIPIsNetworkTaskReady( void )
  80037dc:	f06f 0b0b 	mvn.w	fp, #11
  80037e0:	e729      	b.n	8003636 <FreeRTOS_send+0x16>
  80037e2:	bf00      	nop
- 80037e4:	080103a0 	.word	0x080103a0
+ 80037e4:	080103a8 	.word	0x080103a8
 
 080037e8 <FreeRTOS_listen>:
 	if( ( pxSocket == NULL ) || ( pxSocket == FREERTOS_INVALID_SOCKET ) )
@@ -8752,7 +8754,7 @@ BaseType_t xIPIsNetworkTaskReady( void )
 							( void ) xSendEventToIPTask( eTCPTimerEvent );
  8003af2:	f7fe fa2b 	bl	8001f4c <xSendEventToIPTask>
  8003af6:	e7ca      	b.n	8003a8e <lTCPAddRxdata+0x102>
- 8003af8:	080103cc 	.word	0x080103cc
+ 8003af8:	080103d4 	.word	0x080103d4
 
 08003afc <FreeRTOS_GetRemoteAddress>:
 		if( pxSocket->ucProtocol != ( uint8_t ) FREERTOS_IPPROTO_TCP )
@@ -8976,15 +8978,15 @@ BaseType_t xIPIsNetworkTaskReady( void )
  8003c56:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
  8003c5a:	bf00      	nop
  8003c5c:	20000364 	.word	0x20000364
- 8003c60:	08010414 	.word	0x08010414
- 8003c64:	08010430 	.word	0x08010430
+ 8003c60:	0801041c 	.word	0x0801041c
+ 8003c64:	08010438 	.word	0x08010438
  8003c68:	2000036c 	.word	0x2000036c
  8003c6c:	000f423f 	.word	0x000f423f
- 8003c70:	08010480 	.word	0x08010480
- 8003c74:	08010478 	.word	0x08010478
+ 8003c70:	08010488 	.word	0x08010488
+ 8003c74:	08010480 	.word	0x08010480
  8003c78:	20000378 	.word	0x20000378
- 8003c7c:	080104c0 	.word	0x080104c0
- 8003c80:	080104b0 	.word	0x080104b0
+ 8003c7c:	080104c8 	.word	0x080104c8
+ 8003c80:	080104b8 	.word	0x080104b8
 
 08003c84 <vSocketSelect>:
 				{
@@ -9604,7 +9606,7 @@ size_t uxStreamBufferGet( StreamBuffer_t * pxBuffer,
  8003f96:	bd38      	pop	{r3, r4, r5, pc}
  8003f98:	20000014 	.word	0x20000014
  8003f9c:	20000344 	.word	0x20000344
- 8003fa0:	080104fc 	.word	0x080104fc
+ 8003fa0:	08010504 	.word	0x08010504
 
 08003fa4 <prvSetSynAckOptions>:
 		uint16_t usMSS = pxSocket->u.xTCP.usInitMSS;
@@ -9683,7 +9685,7 @@ size_t uxStreamBufferGet( StreamBuffer_t * pxBuffer,
  8004002:	461c      	mov	r4, r3
  8004004:	e7e8      	b.n	8003fd8 <prvSetSynAckOptions+0x34>
  8004006:	bf00      	nop
- 8004008:	08010528 	.word	0x08010528
+ 8004008:	08010530 	.word	0x08010530
 
 0800400c <prvTCPAddTxData>:
 		lLength = ( int32_t ) uxStreamBufferMidSpace( pxSocket->u.xTCP.txStream );
@@ -10018,8 +10020,8 @@ size_t uxStreamBufferGet( StreamBuffer_t * pxBuffer,
  8004228:	00040080 	.word	0x00040080
  800422c:	20000014 	.word	0x20000014
  8004230:	20000358 	.word	0x20000358
- 8004234:	08010584 	.word	0x08010584
- 8004238:	0801055c 	.word	0x0801055c
+ 8004234:	0801058c 	.word	0x0801058c
+ 8004238:	08010564 	.word	0x08010564
 
 0800423c <prvTCPCreateWindow>:
 		if( xTCPWindowLoggingLevel != 0 )
@@ -10061,7 +10063,7 @@ size_t uxStreamBufferGet( StreamBuffer_t * pxBuffer,
  800428a:	f008 fe17 	bl	800cebc <lUDPLoggingPrintf>
  800428e:	e7db      	b.n	8004248 <prvTCPCreateWindow+0xc>
  8004290:	20000398 	.word	0x20000398
- 8004294:	080105a8 	.word	0x080105a8
+ 8004294:	080105b0 	.word	0x080105b0
 
 08004298 <prvTCPNextTimeout>:
 		if( pxSocket->u.xTCP.ucTCPState == ( uint8_t ) eCONNECT_SYN )
@@ -10162,7 +10164,7 @@ size_t uxStreamBufferGet( StreamBuffer_t * pxBuffer,
  800434a:	4610      	mov	r0, r2
  800434c:	e7c4      	b.n	80042d8 <prvTCPNextTimeout+0x40>
  800434e:	bf00      	nop
- 8004350:	080105e0 	.word	0x080105e0
+ 8004350:	080105e8 	.word	0x080105e8
  8004354:	10624dd3 	.word	0x10624dd3
 
 08004358 <vTCPStateChange>:
@@ -10523,12 +10525,12 @@ size_t uxStreamBufferGet( StreamBuffer_t * pxBuffer,
  80045bc:	e738      	b.n	8004430 <vTCPStateChange+0xd8>
  80045be:	bf00      	nop
  80045c0:	20000398 	.word	0x20000398
- 80045c4:	08010d08 	.word	0x08010d08
- 80045c8:	080106a4 	.word	0x080106a4
- 80045cc:	0801060c 	.word	0x0801060c
- 80045d0:	08010650 	.word	0x08010650
- 80045d4:	08010674 	.word	0x08010674
- 80045d8:	08010618 	.word	0x08010618
+ 80045c4:	08010d10 	.word	0x08010d10
+ 80045c8:	080106ac 	.word	0x080106ac
+ 80045cc:	08010614 	.word	0x08010614
+ 80045d0:	08010658 	.word	0x08010658
+ 80045d4:	0801067c 	.word	0x0801067c
+ 80045d8:	08010620 	.word	0x08010620
 
 080045dc <prvTCPPrepareSend.constprop.0>:
 		if( ( *ppxNetworkBuffer ) != NULL )
@@ -10938,12 +10940,12 @@ size_t uxStreamBufferGet( StreamBuffer_t * pxBuffer,
  80048a8:	4806      	ldr	r0, [pc, #24]	@ (80048c4 <prvTCPPrepareSend.constprop.0+0x2e8>)
  80048aa:	f008 fb07 	bl	800cebc <lUDPLoggingPrintf>
  80048ae:	e725      	b.n	80046fc <prvTCPPrepareSend.constprop.0+0x120>
- 80048b0:	080113c4 	.word	0x080113c4
+ 80048b0:	080113cc 	.word	0x080113cc
  80048b4:	20000398 	.word	0x20000398
- 80048b8:	08010724 	.word	0x08010724
- 80048bc:	080106c8 	.word	0x080106c8
- 80048c0:	080106fc 	.word	0x080106fc
- 80048c4:	08010744 	.word	0x08010744
+ 80048b8:	0801072c 	.word	0x0801072c
+ 80048bc:	080106d0 	.word	0x080106d0
+ 80048c0:	08010704 	.word	0x08010704
+ 80048c4:	0801074c 	.word	0x0801074c
 
 080048c8 <prvTCPHandleFin.isra.0>:
 	static BaseType_t prvTCPHandleFin( FreeRTOS_Socket_t * pxSocket,
@@ -11084,7 +11086,7 @@ size_t uxStreamBufferGet( StreamBuffer_t * pxBuffer,
  80049c4:	b003      	add	sp, #12
  80049c6:	bdf0      	pop	{r4, r5, r6, r7, pc}
  80049c8:	20000398 	.word	0x20000398
- 80049cc:	08010764 	.word	0x08010764
+ 80049cc:	0801076c 	.word	0x0801076c
 
 080049d0 <xTCPSocketCheck>:
 		if( ( pxSocket->u.xTCP.ucTCPState >= ( uint8_t ) eESTABLISHED ) && ( pxSocket->u.xTCP.txStream != NULL ) )
@@ -11467,13 +11469,13 @@ size_t uxStreamBufferGet( StreamBuffer_t * pxBuffer,
  8004c6c:	4620      	mov	r0, r4
  8004c6e:	f7fe f8cf 	bl	8002e10 <FreeRTOS_closesocket>
  8004c72:	e70a      	b.n	8004a8a <xTCPSocketCheck+0xba>
- 8004c74:	08010d08 	.word	0x08010d08
- 8004c78:	08010838 	.word	0x08010838
+ 8004c74:	08010d10 	.word	0x08010d10
+ 8004c78:	08010840 	.word	0x08010840
  8004c7c:	20000398 	.word	0x20000398
- 8004c80:	080107a8 	.word	0x080107a8
- 8004c84:	080107f4 	.word	0x080107f4
+ 8004c80:	080107b0 	.word	0x080107b0
+ 8004c84:	080107fc 	.word	0x080107fc
  8004c88:	20000014 	.word	0x20000014
- 8004c8c:	080107d4 	.word	0x080107d4
+ 8004c8c:	080107dc 	.word	0x080107dc
 
 08004c90 <xProcessReceivedTCPPacket>:
 	{
@@ -11907,11 +11909,11 @@ size_t uxStreamBufferGet( StreamBuffer_t * pxBuffer,
 		ucIntermediateResult = ( pxTCPHeader->ucTCPOffset & tcpVALID_BITS_IN_TCP_OFFSET_BYTE ) >> 2;
  800501a:	f896 302e 	ldrb.w	r3, [r6, #46]	@ 0x2e
  800501e:	e736      	b.n	8004e8e <xProcessReceivedTCPPacket+0x1fe>
- 8005020:	080108d0 	.word	0x080108d0
+ 8005020:	080108d8 	.word	0x080108d8
  8005024:	2000038c 	.word	0x2000038c
- 8005028:	080108e4 	.word	0x080108e4
- 800502c:	080108a0 	.word	0x080108a0
- 8005030:	080109f4 	.word	0x080109f4
+ 8005028:	080108ec 	.word	0x080108ec
+ 800502c:	080108a8 	.word	0x080108a8
+ 8005030:	080109fc 	.word	0x080109fc
 					xSendLength = prvTCPHandleFin( pxSocket, *ppxNetworkBuffer );
  8005034:	69a9      	ldr	r1, [r5, #24]
  8005036:	4658      	mov	r0, fp
@@ -12319,11 +12321,11 @@ size_t uxStreamBufferGet( StreamBuffer_t * pxBuffer,
  8005338:	e5a9      	b.n	8004e8e <xProcessReceivedTCPPacket+0x1fe>
  800533a:	bf00      	nop
  800533c:	20000014 	.word	0x20000014
- 8005340:	08010880 	.word	0x08010880
- 8005344:	08010af4 	.word	0x08010af4
+ 8005340:	08010888 	.word	0x08010888
+ 8005344:	08010afc 	.word	0x08010afc
  8005348:	20000398 	.word	0x20000398
- 800534c:	08010bfc 	.word	0x08010bfc
- 8005350:	080109cc 	.word	0x080109cc
+ 800534c:	08010c04 	.word	0x08010c04
+ 8005350:	080109d4 	.word	0x080109d4
 			if( pxSocket->u.xTCP.rxStream != NULL )
  8005354:	f8db 3074 	ldr.w	r3, [fp, #116]	@ 0x74
  8005358:	2b00      	cmp	r3, #0
@@ -12719,16 +12721,16 @@ size_t uxStreamBufferGet( StreamBuffer_t * pxBuffer,
  8005674:	4613      	mov	r3, r2
  8005676:	e4c7      	b.n	8005008 <xProcessReceivedTCPPacket+0x378>
  8005678:	20000398 	.word	0x20000398
- 800567c:	08010a74 	.word	0x08010a74
- 8005680:	08010b58 	.word	0x08010b58
- 8005684:	08010c28 	.word	0x08010c28
- 8005688:	08010870 	.word	0x08010870
- 800568c:	08010a48 	.word	0x08010a48
+ 800567c:	08010a7c 	.word	0x08010a7c
+ 8005680:	08010b60 	.word	0x08010b60
+ 8005684:	08010c30 	.word	0x08010c30
+ 8005688:	08010878 	.word	0x08010878
+ 800568c:	08010a50 	.word	0x08010a50
  8005690:	20000014 	.word	0x20000014
- 8005694:	08011450 	.word	0x08011450
- 8005698:	0801097c 	.word	0x0801097c
- 800569c:	08010ab4 	.word	0x08010ab4
- 80056a0:	0801022c 	.word	0x0801022c
+ 8005694:	08011458 	.word	0x08011458
+ 8005698:	08010984 	.word	0x08010984
+ 800569c:	08010abc 	.word	0x08010abc
+ 80056a0:	08010234 	.word	0x08010234
 			pxTCPWindow->usPeerPortNumber = pxSocket->u.xTCP.usRemotePort;
  80056a4:	f8bb e03c 	ldrh.w	lr, [fp, #60]	@ 0x3c
 			pxTCPWindow->usOurPortNumber = pxSocket->usLocalPort;
@@ -13131,20 +13133,20 @@ size_t uxStreamBufferGet( StreamBuffer_t * pxBuffer,
 			if( ( pxSocket->u.xTCP.ucTCPState == ( EventBits_t ) eCONNECT_SYN ) || ( ulReceiveLength != 0UL ) )
  80059ec:	e6d3      	b.n	8005796 <xProcessReceivedTCPPacket+0xb06>
  80059ee:	bf00      	nop
- 80059f0:	08010890 	.word	0x08010890
- 80059f4:	08010898 	.word	0x08010898
- 80059f8:	08010b28 	.word	0x08010b28
+ 80059f0:	08010898 	.word	0x08010898
+ 80059f4:	080108a0 	.word	0x080108a0
+ 80059f8:	08010b30 	.word	0x08010b30
  80059fc:	20000398 	.word	0x20000398
- 8005a00:	08010c28 	.word	0x08010c28
- 8005a04:	0801022c 	.word	0x0801022c
- 8005a08:	08011450 	.word	0x08011450
- 8005a0c:	0801092c 	.word	0x0801092c
- 8005a10:	08010aa0 	.word	0x08010aa0
- 8005a14:	08010a18 	.word	0x08010a18
- 8005a18:	0801095c 	.word	0x0801095c
- 8005a1c:	08010b88 	.word	0x08010b88
- 8005a20:	080109a8 	.word	0x080109a8
- 8005a24:	08010bc0 	.word	0x08010bc0
+ 8005a00:	08010c30 	.word	0x08010c30
+ 8005a04:	08010234 	.word	0x08010234
+ 8005a08:	08011458 	.word	0x08011458
+ 8005a0c:	08010934 	.word	0x08010934
+ 8005a10:	08010aa8 	.word	0x08010aa8
+ 8005a14:	08010a20 	.word	0x08010a20
+ 8005a18:	08010964 	.word	0x08010964
+ 8005a1c:	08010b90 	.word	0x08010b90
+ 8005a20:	080109b0 	.word	0x080109b0
+ 8005a24:	08010bc8 	.word	0x08010bc8
 							ucLen -= 2U;
  8005a28:	1e8b      	subs	r3, r1, #2
  8005a2a:	b2db      	uxtb	r3, r3
@@ -13279,7 +13281,7 @@ size_t uxStreamBufferGet( StreamBuffer_t * pxBuffer,
  8005b32:	f007 f9c3 	bl	800cebc <lUDPLoggingPrintf>
 							pxSocket->u.xTCP.usCurMSS = ( uint16_t ) uxNewMSS;
  8005b36:	e7e3      	b.n	8005b00 <xProcessReceivedTCPPacket+0xe70>
- 8005b38:	08010a30 	.word	0x08010a30
+ 8005b38:	08010a38 	.word	0x08010a38
 
 08005b3c <FreeRTOS_GetTCPStateName>:
 			if( ( xIndex < 0 ) || ( xIndex >= ARRAY_SIZE( pcStateNames ) ) )
@@ -13292,8 +13294,8 @@ size_t uxStreamBufferGet( StreamBuffer_t * pxBuffer,
  8005b48:	4801      	ldr	r0, [pc, #4]	@ (8005b50 <FreeRTOS_GetTCPStateName+0x14>)
 		}
  8005b4a:	4770      	bx	lr
- 8005b4c:	08010d08 	.word	0x08010d08
- 8005b50:	0801060c 	.word	0x0801060c
+ 8005b4c:	08010d10 	.word	0x08010d10
+ 8005b50:	08010614 	.word	0x08010614
 
 08005b54 <xTCPCheckNewClient>:
 		BaseType_t xResult = pdFALSE;
@@ -13359,7 +13361,7 @@ size_t uxStreamBufferGet( StreamBuffer_t * pxBuffer,
  8005b9c:	bd38      	pop	{r3, r4, r5, pc}
  8005b9e:	bf00      	nop
  8005ba0:	20000364 	.word	0x20000364
- 8005ba4:	08010c64 	.word	0x08010c64
+ 8005ba4:	08010c6c 	.word	0x08010c6c
 
 08005ba8 <prvTCPWindowTxHasSpace>:
 		{
@@ -13725,9 +13727,9 @@ size_t uxStreamBufferGet( StreamBuffer_t * pxBuffer,
  8005d76:	3103      	addmi	r1, #3
  8005d78:	1089      	asrs	r1, r1, #2
  8005d7a:	e7ef      	b.n	8005d5c <prvTCPWindowTxCheckAck+0x128>
- 8005d7c:	08010d3c 	.word	0x08010d3c
+ 8005d7c:	08010d44 	.word	0x08010d44
  8005d80:	20000398 	.word	0x20000398
- 8005d84:	08010d88 	.word	0x08010d88
+ 8005d84:	08010d90 	.word	0x08010d90
 
 08005d88 <xTCPWindowNew>:
 		{
@@ -13855,8 +13857,8 @@ size_t uxStreamBufferGet( StreamBuffer_t * pxBuffer,
  8005e4c:	e7ad      	b.n	8005daa <xTCPWindowNew+0x22>
  8005e4e:	bf00      	nop
  8005e50:	20000010 	.word	0x20000010
- 8005e54:	08010dc8 	.word	0x08010dc8
- 8005e58:	08010df8 	.word	0x08010df8
+ 8005e54:	08010dd0 	.word	0x08010dd0
+ 8005e58:	08010e00 	.word	0x08010e00
  8005e5c:	2000039c 	.word	0x2000039c
 
 08005e60 <vListInsertGeneric>:
@@ -13915,7 +13917,7 @@ size_t uxStreamBufferGet( StreamBuffer_t * pxBuffer,
  8005e9e:	f007 f80d 	bl	800cebc <lUDPLoggingPrintf>
 				xReturn = pdFALSE;
  8005ea2:	e7ef      	b.n	8005e84 <xTCPWindowRxEmpty+0x8>
- 8005ea4:	08010e30 	.word	0x08010e30
+ 8005ea4:	08010e38 	.word	0x08010e38
 
 08005ea8 <vTCPWindowDestroy>:
 		{
@@ -14162,9 +14164,9 @@ size_t uxStreamBufferGet( StreamBuffer_t * pxBuffer,
  8006042:	e788      	b.n	8005f56 <vTCPWindowCreate+0x1a>
  8006044:	200003b0 	.word	0x200003b0
  8006048:	20000398 	.word	0x20000398
- 800604c:	08010e84 	.word	0x08010e84
+ 800604c:	08010e8c 	.word	0x08010e8c
  8006050:	2000039c 	.word	0x2000039c
- 8006054:	08010e60 	.word	0x08010e60
+ 8006054:	08010e68 	.word	0x08010e68
 
 08006058 <vTCPWindowInit>:
 	{
@@ -14520,13 +14522,13 @@ size_t uxStreamBufferGet( StreamBuffer_t * pxBuffer,
 					lReturn = -1;
  80062b2:	e73e      	b.n	8006132 <lTCPWindowRxCheck+0x92>
  80062b4:	0a050101 	.word	0x0a050101
- 80062b8:	08010fd0 	.word	0x08010fd0
+ 80062b8:	08010fd8 	.word	0x08010fd8
  80062bc:	20000398 	.word	0x20000398
- 80062c0:	08011010 	.word	0x08011010
- 80062c4:	08010f40 	.word	0x08010f40
- 80062c8:	08010eb4 	.word	0x08010eb4
- 80062cc:	08010f88 	.word	0x08010f88
- 80062d0:	08010ef8 	.word	0x08010ef8
+ 80062c0:	08011018 	.word	0x08011018
+ 80062c4:	08010f48 	.word	0x08010f48
+ 80062c8:	08010ebc 	.word	0x08010ebc
+ 80062cc:	08010f90 	.word	0x08010f90
+ 80062d0:	08010f00 	.word	0x08010f00
 
 080062d4 <lTCPWindowTxAdd>:
 		{
@@ -14737,9 +14739,9 @@ size_t uxStreamBufferGet( StreamBuffer_t * pxBuffer,
  8006424:	e7df      	b.n	80063e6 <lTCPWindowTxAdd+0x112>
  8006426:	bf00      	nop
  8006428:	20000398 	.word	0x20000398
- 800642c:	0801108c 	.word	0x0801108c
- 8006430:	080110d8 	.word	0x080110d8
- 8006434:	08011040 	.word	0x08011040
+ 800642c:	08011094 	.word	0x08011094
+ 8006430:	080110e0 	.word	0x080110e0
+ 8006434:	08011048 	.word	0x08011048
 
 08006438 <xTCPWindowTxDone>:
 			return listLIST_IS_EMPTY( ( &pxWindow->xTxSegments ) );
@@ -15081,11 +15083,11 @@ size_t uxStreamBufferGet( StreamBuffer_t * pxBuffer,
  8006648:	755b      	strb	r3, [r3, #21]
  800664a:	deff      	udf	#255	@ 0xff
  800664c:	20000398 	.word	0x20000398
- 8006650:	08010df8 	.word	0x08010df8
- 8006654:	080111b0 	.word	0x080111b0
- 8006658:	08011114 	.word	0x08011114
- 800665c:	08011200 	.word	0x08011200
- 8006660:	08011160 	.word	0x08011160
+ 8006650:	08010e00 	.word	0x08010e00
+ 8006654:	080111b8 	.word	0x080111b8
+ 8006658:	0801111c 	.word	0x0801111c
+ 800665c:	08011208 	.word	0x08011208
+ 8006660:	08011168 	.word	0x08011168
 
 08006664 <ulTCPWindowTxAck>:
 		{
@@ -15258,8 +15260,8 @@ size_t uxStreamBufferGet( StreamBuffer_t * pxBuffer,
 							ulCount++;
  800674c:	e7bb      	b.n	80066c6 <ulTCPWindowTxSack+0x4e>
  800674e:	bf00      	nop
- 8006750:	08011278 	.word	0x08011278
- 8006754:	08011238 	.word	0x08011238
+ 8006750:	08011280 	.word	0x08011280
+ 8006754:	08011240 	.word	0x08011240
  8006758:	20000398 	.word	0x20000398
 
 0800675c <vProcessGeneratedUDPPacket>:
@@ -15599,7 +15601,7 @@ BaseType_t xProcessReceivedUDPPacket( NetworkBufferDescriptor_t * pxNetworkBuffe
  8006910:	4801      	ldr	r0, [pc, #4]	@ (8006918 <xProcessReceivedUDPPacket+0xf0>)
  8006912:	f7fa f9f1 	bl	8000cf8 <vAssertCalled>
  8006916:	e78e      	b.n	8006836 <xProcessReceivedUDPPacket+0xe>
- 8006918:	080112b0 	.word	0x080112b0
+ 8006918:	080112b8 	.word	0x080112b8
 
 0800691c <xNetworkBuffersInitialise>:
 	/*-----------------------------------------------------------*/
@@ -15681,7 +15683,7 @@ BaseType_t xReturn, x;
  8006980:	200003b8 	.word	0x200003b8
  8006984:	20000cbc 	.word	0x20000cbc
  8006988:	20000cb8 	.word	0x20000cb8
- 800698c:	080112e8 	.word	0x080112e8
+ 800698c:	080112f0 	.word	0x080112f0
 
 08006990 <pxGetNetworkBufferWithDescriptor>:
 /*-----------------------------------------------------------*/
@@ -15784,8 +15786,8 @@ NetworkBufferDescriptor_t *pxReturn = NULL;
  80069f4:	200003b4 	.word	0x200003b4
  80069f8:	20000cbc 	.word	0x20000cbc
  80069fc:	20000cb8 	.word	0x20000cb8
- 8006a00:	080112e8 	.word	0x080112e8
- 8006a04:	0801133c 	.word	0x0801133c
+ 8006a00:	080112f0 	.word	0x080112f0
+ 8006a04:	08011344 	.word	0x08011344
 
 08006a08 <vReleaseNetworkBufferAndDescriptor>:
 	return xHigherPriorityTaskWoken;
@@ -15859,7 +15861,7 @@ UBaseType_t uxGetNumberOfFreeNetworkBuffers( void )
  8006a46:	bf00      	nop
  8006a48:	20000cbc 	.word	0x20000cbc
  8006a4c:	200003b4 	.word	0x200003b4
- 8006a50:	08011380 	.word	0x08011380
+ 8006a50:	08011388 	.word	0x08011388
 
 08006a54 <uxGetMinimumFreeNetworkBuffers>:
 	return uxMinimumFreeNetworkBuffers;
@@ -16013,7 +16015,7 @@ BaseType_t xPhyAddress;
  8006af2:	b002      	add	sp, #8
  8006af4:	bd70      	pop	{r4, r5, r6, pc}
  8006af6:	bf00      	nop
- 8006af8:	080113c8 	.word	0x080113c8
+ 8006af8:	080113d0 	.word	0x080113d0
 
 08006afc <xPhyConfigure>:
 BaseType_t xPhyConfigure( EthernetPhy_t *pxPhyObject, const PhyProperties_t *pxPhyProperties )
@@ -16397,11 +16399,11 @@ BaseType_t xPhyIndex;
  8006d2c:	f04f 30ff 	mov.w	r0, #4294967295
  8006d30:	e7d6      	b.n	8006ce0 <xPhyConfigure+0x1e4>
  8006d32:	bf00      	nop
- 8006d34:	0801141c 	.word	0x0801141c
+ 8006d34:	08011424 	.word	0x08011424
  8006d38:	20005c90 	.word	0x20005c90
- 8006d3c:	08011454 	.word	0x08011454
- 8006d40:	080113d4 	.word	0x080113d4
- 8006d44:	080113f8 	.word	0x080113f8
+ 8006d3c:	0801145c 	.word	0x0801145c
+ 8006d40:	080113dc 	.word	0x080113dc
+ 8006d44:	08011400 	.word	0x08011400
  8006d48:	0007c130 	.word	0x0007c130
 
 08006d4c <xPhyStartAutoNegotiation>:
@@ -16746,12 +16748,12 @@ TimeOut_t xTimer;
 			FreeRTOS_printf( ( "Autonego ready: %08lx: %s duplex %u mbit %s status\n",
  8006f34:	e7b8      	b.n	8006ea8 <xPhyStartAutoNegotiation+0x15c>
  8006f36:	bf00      	nop
- 8006f38:	0801148c 	.word	0x0801148c
+ 8006f38:	08011494 	.word	0x08011494
  8006f3c:	2000a250 	.word	0x2000a250
- 8006f40:	0801147c 	.word	0x0801147c
- 8006f44:	08011484 	.word	0x08011484
- 8006f48:	08011504 	.word	0x08011504
- 8006f4c:	080114d0 	.word	0x080114d0
+ 8006f40:	08011484 	.word	0x08011484
+ 8006f44:	0801148c 	.word	0x0801148c
+ 8006f48:	0801150c 	.word	0x0801150c
+ 8006f4c:	080114d8 	.word	0x080114d8
  8006f50:	00221560 	.word	0x00221560
  8006f54:	20005c90 	.word	0x20005c90
 
@@ -16935,7 +16937,7 @@ BaseType_t xNeedCheck = pdFALSE;
  8007054:	b002      	add	sp, #8
  8007056:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
  800705a:	bf00      	nop
- 800705c:	0801150c 	.word	0x0801150c
+ 800705c:	08011514 	.word	0x08011514
 
 08007060 <prvNetworkInterfaceInput>:
     }
@@ -17078,7 +17080,7 @@ static BaseType_t prvNetworkInterfaceInput( void )
  80070fc:	d1b7      	bne.n	800706e <prvNetworkInterfaceInput+0xe>
  80070fe:	e7d4      	b.n	80070aa <prvNetworkInterfaceInput+0x4a>
  8007100:	20000d48 	.word	0x20000d48
- 8007104:	08011534 	.word	0x08011534
+ 8007104:	0801153c 	.word	0x0801153c
 
 08007108 <ETH_PHY_IO_WriteReg>:
  * @retval 0 if OK -1 if Error
@@ -17209,7 +17211,7 @@ static int32_t ETH_PHY_IO_WriteReg( uint32_t ulDevAddr,
  80071b6:	f000 bbef 	b.w	8007998 <HAL_ETH_Stop_IT>
  80071ba:	bf00      	nop
  80071bc:	20000cd0 	.word	0x20000cd0
- 80071c0:	08011558 	.word	0x08011558
+ 80071c0:	08011560 	.word	0x08011560
  80071c4:	20000d48 	.word	0x20000d48
 
 080071c8 <prvEMACHandlerTask>:
@@ -17420,9 +17422,9 @@ static void prvEMACHandlerTask( void * pvParameters )
  80072f0:	20000dc8 	.word	0x20000dc8
  80072f4:	20000d74 	.word	0x20000d74
  80072f8:	20000cd0 	.word	0x20000cd0
- 80072fc:	0801158c 	.word	0x0801158c
+ 80072fc:	08011594 	.word	0x08011594
  8007300:	20000dbc 	.word	0x20000dbc
- 8007304:	080115a4 	.word	0x080115a4
+ 8007304:	080115ac 	.word	0x080115ac
  8007308:	24058000 	.word	0x24058000
  800730c:	20000dc0 	.word	0x20000dc0
 
@@ -17622,15 +17624,15 @@ static void prvEMACHandlerTask( void * pvParameters )
  8007454:	08007109 	.word	0x08007109
  8007458:	08007129 	.word	0x08007129
  800745c:	20000cd0 	.word	0x20000cd0
- 8007460:	08011674 	.word	0x08011674
+ 8007460:	0801167c 	.word	0x0801167c
  8007464:	20000d10 	.word	0x20000d10
- 8007468:	08011618 	.word	0x08011618
+ 8007468:	08011620 	.word	0x08011620
  800746c:	080071c9 	.word	0x080071c9
- 8007470:	08011624 	.word	0x08011624
+ 8007470:	0801162c 	.word	0x0801162c
  8007474:	40028000 	.word	0x40028000
  8007478:	24058060 	.word	0x24058060
  800747c:	24058000 	.word	0x24058000
- 8007480:	080115bc 	.word	0x080115bc
+ 8007480:	080115c4 	.word	0x080115c4
 
 08007484 <xGetPhyLinkStatus>:
     if( xPhyObject.ulLinkStatusMask != 0U )
@@ -17730,8 +17732,8 @@ static void prvEMACHandlerTask( void * pvParameters )
  8007524:	20000cd0 	.word	0x20000cd0
  8007528:	20000dc0 	.word	0x20000dc0
  800752c:	20000d14 	.word	0x20000d14
- 8007530:	0801163c 	.word	0x0801163c
- 8007534:	080115bc 	.word	0x080115bc
+ 8007530:	08011644 	.word	0x08011644
+ 8007534:	080115c4 	.word	0x080115c4
  8007538:	20000d48 	.word	0x20000d48
  800753c:	20000dbc 	.word	0x20000dbc
 
@@ -18710,7 +18712,7 @@ static void prvEMACHandlerTask( void * pvParameters )
         }
  8007af6:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
  8007afa:	bf00      	nop
- 8007afc:	08011678 	.word	0x08011678
+ 8007afc:	08011680 	.word	0x08011680
 
 08007b00 <HAL_ETH_GetRxData>:
         {
@@ -18768,7 +18770,7 @@ static void prvEMACHandlerTask( void * pvParameters )
  8007b54:	4801      	ldr	r0, [pc, #4]	@ (8007b5c <HAL_ETH_GetRxData+0x5c>)
  8007b56:	f7f9 f8cf 	bl	8000cf8 <vAssertCalled>
  8007b5a:	e7d5      	b.n	8007b08 <HAL_ETH_GetRxData+0x8>
- 8007b5c:	08011678 	.word	0x08011678
+ 8007b5c:	08011680 	.word	0x08011680
 
 08007b60 <HAL_ETH_BuildRxDescriptors>:
         {
@@ -20085,7 +20087,7 @@ BaseType_t xWaitConditionMet = pdFALSE;
  80083fa:	d1a2      	bne.n	8008342 <xEventGroupWaitBits+0x5a>
  80083fc:	e7cf      	b.n	800839e <xEventGroupWaitBits+0xb6>
  80083fe:	bf00      	nop
- 8008400:	080116d4 	.word	0x080116d4
+ 8008400:	080116dc 	.word	0x080116dc
 
 08008404 <xEventGroupClearBits>:
 {
@@ -20122,7 +20124,7 @@ BaseType_t xWaitConditionMet = pdFALSE;
  8008438:	f7f8 fc5e 	bl	8000cf8 <vAssertCalled>
  800843c:	e7e6      	b.n	800840c <xEventGroupClearBits+0x8>
  800843e:	bf00      	nop
- 8008440:	080116d4 	.word	0x080116d4
+ 8008440:	080116dc 	.word	0x080116dc
 
 08008444 <xEventGroupSetBits>:
 {
@@ -20210,7 +20212,7 @@ EventBits_t uxBitsToClear = 0, uxBitsWaitedFor, uxControlBits;
  80084c4:	4801      	ldr	r0, [pc, #4]	@ (80084cc <xEventGroupSetBits+0x88>)
  80084c6:	f7f8 fc17 	bl	8000cf8 <vAssertCalled>
  80084ca:	e7c1      	b.n	8008450 <xEventGroupSetBits+0xc>
- 80084cc:	080116d4 	.word	0x080116d4
+ 80084cc:	080116dc 	.word	0x080116dc
 
 080084d0 <vEventGroupDelete>:
 {
@@ -20254,7 +20256,7 @@ EventBits_t uxBitsToClear = 0, uxBitsWaitedFor, uxControlBits;
 	( void ) xTaskResumeAll();
  800851a:	f000 bea3 	b.w	8009264 <xTaskResumeAll>
  800851e:	bf00      	nop
- 8008520:	080116d4 	.word	0x080116d4
+ 8008520:	080116dc 	.word	0x080116dc
 
 08008524 <vListInitialise>:
 void vListInitialise( List_t * const pxList )
@@ -20772,7 +20774,7 @@ static void prvUnlockQueue( Queue_t * const pxQueue )
  8008738:	4801      	ldr	r0, [pc, #4]	@ (8008740 <xQueueGenericReset+0x8c>)
  800873a:	f7f8 fadd 	bl	8000cf8 <vAssertCalled>
  800873e:	e7be      	b.n	80086be <xQueueGenericReset+0xa>
- 8008740:	08011700 	.word	0x08011700
+ 8008740:	08011708 	.word	0x08011708
 
 08008744 <xQueueGenericCreate>:
 	{
@@ -20817,7 +20819,7 @@ static void prvUnlockQueue( Queue_t * const pxQueue )
  8008780:	4801      	ldr	r0, [pc, #4]	@ (8008788 <xQueueGenericCreate+0x44>)
  8008782:	f7f8 fab9 	bl	8000cf8 <vAssertCalled>
  8008786:	e7e2      	b.n	800874e <xQueueGenericCreate+0xa>
- 8008788:	08011700 	.word	0x08011700
+ 8008788:	08011708 	.word	0x08011708
 
 0800878c <xQueueCreateCountingSemaphore>:
 	{
@@ -20854,7 +20856,7 @@ static void prvUnlockQueue( Queue_t * const pxQueue )
  80087bc:	f7f8 fa9c 	bl	8000cf8 <vAssertCalled>
  80087c0:	e7ea      	b.n	8008798 <xQueueCreateCountingSemaphore+0xc>
  80087c2:	bf00      	nop
- 80087c4:	08011700 	.word	0x08011700
+ 80087c4:	08011708 	.word	0x08011708
 
 080087c8 <xQueueGenericSend>:
 {
@@ -21043,7 +21045,7 @@ static void prvUnlockQueue( Queue_t * const pxQueue )
  800893c:	f7f8 f9dc 	bl	8000cf8 <vAssertCalled>
  8008940:	e75a      	b.n	80087f8 <xQueueGenericSend+0x30>
  8008942:	bf00      	nop
- 8008944:	08011700 	.word	0x08011700
+ 8008944:	08011708 	.word	0x08011708
 
 08008948 <xQueueCreateMutex>:
 	{
@@ -21270,7 +21272,7 @@ static void prvUnlockQueue( Queue_t * const pxQueue )
  8008ad2:	f3bf 8f4f 	dsb	sy
  8008ad6:	f3bf 8f6f 	isb	sy
  8008ada:	e7e6      	b.n	8008aaa <xQueueReceive+0x12a>
- 8008adc:	08011700 	.word	0x08011700
+ 8008adc:	08011708 	.word	0x08011708
 
 08008ae0 <xQueueSemaphoreTake>:
 {
@@ -21489,7 +21491,7 @@ static void prvUnlockQueue( Queue_t * const pxQueue )
  8008c74:	f000 fe54 	bl	8009920 <pvTaskIncrementMutexHeldCount>
  8008c78:	60a0      	str	r0, [r4, #8]
  8008c7a:	e77e      	b.n	8008b7a <xQueueSemaphoreTake+0x9a>
- 8008c7c:	08011700 	.word	0x08011700
+ 8008c7c:	08011708 	.word	0x08011708
 
 08008c80 <uxQueueMessagesWaiting>:
 {
@@ -21519,7 +21521,7 @@ static void prvUnlockQueue( Queue_t * const pxQueue )
 } /*lint !e818 Pointer cannot be declared const as xQueue is a typedef not pointer. */
  8008ca8:	4620      	mov	r0, r4
  8008caa:	bd10      	pop	{r4, pc}
- 8008cac:	08011700 	.word	0x08011700
+ 8008cac:	08011708 	.word	0x08011708
 
 08008cb0 <uxQueueSpacesAvailable>:
 {
@@ -21543,7 +21545,7 @@ static void prvUnlockQueue( Queue_t * const pxQueue )
  8008ccc:	4801      	ldr	r0, [pc, #4]	@ (8008cd4 <uxQueueSpacesAvailable+0x24>)
  8008cce:	f7f8 f813 	bl	8000cf8 <vAssertCalled>
  8008cd2:	e7f0      	b.n	8008cb6 <uxQueueSpacesAvailable+0x6>
- 8008cd4:	08011700 	.word	0x08011700
+ 8008cd4:	08011708 	.word	0x08011708
 
 08008cd8 <vQueueDelete>:
 {
@@ -21599,7 +21601,7 @@ static void prvUnlockQueue( Queue_t * const pxQueue )
  8008d1e:	bf00      	nop
  8008d20:	20000dd4 	.word	0x20000dd4
  8008d24:	20000dd0 	.word	0x20000dd0
- 8008d28:	08011700 	.word	0x08011700
+ 8008d28:	08011708 	.word	0x08011708
 
 08008d2c <vQueueAddToRegistry>:
 		for( ux = ( UBaseType_t ) 0U; ux < ( UBaseType_t ) configQUEUE_REGISTRY_SIZE; ux++ )
@@ -22125,12 +22127,12 @@ uint32_t ulNewBASEPRI;
 		configASSERT( xReturn != errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY );
  8009088:	f7f7 be36 	b.w	8000cf8 <vAssertCalled>
  800908c:	20000e1c 	.word	0x20000e1c
- 8009090:	08011748 	.word	0x08011748
+ 8009090:	08011750 	.word	0x08011750
  8009094:	08008de9 	.word	0x08008de9
  8009098:	20000e20 	.word	0x20000e20
  800909c:	20000e34 	.word	0x20000e34
  80090a0:	20000e3c 	.word	0x20000e3c
- 80090a4:	08011724 	.word	0x08011724
+ 80090a4:	0801172c 	.word	0x0801172c
 
 080090a8 <vTaskSuspendAll>:
 	++uxSchedulerSuspended;
@@ -22172,7 +22174,7 @@ uint32_t ulNewBASEPRI;
  80090de:	f7f7 fe0b 	bl	8000cf8 <vAssertCalled>
  80090e2:	e7f2      	b.n	80090ca <pcTaskGetName+0x6>
  80090e4:	20000f40 	.word	0x20000f40
- 80090e8:	08011724 	.word	0x08011724
+ 80090e8:	0801172c 	.word	0x0801172c
 
 080090ec <xTaskIncrementTick>:
 	if( uxSchedulerSuspended == ( UBaseType_t ) pdFALSE )
@@ -22371,7 +22373,7 @@ BaseType_t xSwitchRequired = pdFALSE;
  800924c:	20000e84 	.word	0x20000e84
  8009250:	20000e28 	.word	0x20000e28
  8009254:	20000e2c 	.word	0x20000e2c
- 8009258:	08011724 	.word	0x08011724
+ 8009258:	0801172c 	.word	0x0801172c
  800925c:	20000eb4 	.word	0x20000eb4
  8009260:	20000f40 	.word	0x20000f40
 
@@ -22513,7 +22515,7 @@ BaseType_t xAlreadyYielded = pdFALSE;
  8009374:	20000e88 	.word	0x20000e88
  8009378:	20000e20 	.word	0x20000e20
  800937c:	20000e30 	.word	0x20000e30
- 8009380:	08011724 	.word	0x08011724
+ 8009380:	0801172c 	.word	0x0801172c
  8009384:	20000e70 	.word	0x20000e70
  8009388:	20000eb4 	.word	0x20000eb4
  800938c:	20000e2c 	.word	0x20000e2c
@@ -22555,7 +22557,7 @@ BaseType_t xAlreadyYielded = pdFALSE;
  80093d0:	e7e4      	b.n	800939c <vTaskDelay+0xc>
  80093d2:	bf00      	nop
  80093d4:	20000e18 	.word	0x20000e18
- 80093d8:	08011724 	.word	0x08011724
+ 80093d8:	0801172c 	.word	0x0801172c
 
 080093dc <vTaskSwitchContext>:
 {
@@ -22643,7 +22645,7 @@ BaseType_t xAlreadyYielded = pdFALSE;
  8009470:	20000e14 	.word	0x20000e14
  8009474:	20000e38 	.word	0x20000e38
  8009478:	20000eb4 	.word	0x20000eb4
- 800947c:	08011724 	.word	0x08011724
+ 800947c:	0801172c 	.word	0x0801172c
 
 08009480 <vTaskPlaceOnEventList>:
 {
@@ -22673,7 +22675,7 @@ BaseType_t xAlreadyYielded = pdFALSE;
  80094a6:	f7f7 fc27 	bl	8000cf8 <vAssertCalled>
  80094aa:	e7ed      	b.n	8009488 <vTaskPlaceOnEventList+0x8>
  80094ac:	20000f40 	.word	0x20000f40
- 80094b0:	08011724 	.word	0x08011724
+ 80094b0:	0801172c 	.word	0x0801172c
 
 080094b4 <vTaskPlaceOnUnorderedEventList>:
 {
@@ -22722,7 +22724,7 @@ BaseType_t xAlreadyYielded = pdFALSE;
  80094fa:	e7e0      	b.n	80094be <vTaskPlaceOnUnorderedEventList+0xa>
  80094fc:	20000e18 	.word	0x20000e18
  8009500:	20000f40 	.word	0x20000f40
- 8009504:	08011724 	.word	0x08011724
+ 8009504:	0801172c 	.word	0x0801172c
 
 08009508 <xTaskRemoveFromEventList>:
 {
@@ -22794,7 +22796,7 @@ BaseType_t xAlreadyYielded = pdFALSE;
  8009584:	20000f40 	.word	0x20000f40
  8009588:	20000e2c 	.word	0x20000e2c
  800958c:	20000e70 	.word	0x20000e70
- 8009590:	08011724 	.word	0x08011724
+ 8009590:	0801172c 	.word	0x0801172c
 
 08009594 <vTaskRemoveFromUnorderedEventList>:
 	configASSERT( uxSchedulerSuspended != pdFALSE );
@@ -22870,7 +22872,7 @@ BaseType_t xAlreadyYielded = pdFALSE;
  8009614:	20000eb4 	.word	0x20000eb4
  8009618:	20000f40 	.word	0x20000f40
  800961c:	20000e2c 	.word	0x20000e2c
- 8009620:	08011724 	.word	0x08011724
+ 8009620:	0801172c 	.word	0x0801172c
 
 08009624 <vTaskSetTimeOutState>:
 {
@@ -22901,7 +22903,7 @@ BaseType_t xAlreadyYielded = pdFALSE;
  800964e:	bf00      	nop
  8009650:	20000e28 	.word	0x20000e28
  8009654:	20000e3c 	.word	0x20000e3c
- 8009658:	08011724 	.word	0x08011724
+ 8009658:	0801172c 	.word	0x0801172c
 
 0800965c <vTaskInternalSetTimeOutState>:
 	pxTimeOut->xOverflowCount = xNumOfOverflows;
@@ -23001,7 +23003,7 @@ BaseType_t xAlreadyYielded = pdFALSE;
  80096e8:	e7c9      	b.n	800967e <xTaskCheckForTimeOut+0xa>
  80096ea:	bf00      	nop
  80096ec:	20000e3c 	.word	0x20000e3c
- 80096f0:	08011724 	.word	0x08011724
+ 80096f0:	0801172c 	.word	0x0801172c
  80096f4:	20000e28 	.word	0x20000e28
 
 080096f8 <vTaskMissedYield>:
@@ -23211,7 +23213,7 @@ BaseType_t xAlreadyYielded = pdFALSE;
 	}
  8009846:	bd38      	pop	{r3, r4, r5, pc}
  8009848:	20000f40 	.word	0x20000f40
- 800984c:	08011724 	.word	0x08011724
+ 800984c:	0801172c 	.word	0x0801172c
  8009850:	20000e38 	.word	0x20000e38
  8009854:	20000eb4 	.word	0x20000eb4
 
@@ -23305,7 +23307,7 @@ BaseType_t xAlreadyYielded = pdFALSE;
  80098f0:	ea22 0203 	bic.w	r2, r2, r3
  80098f4:	6032      	str	r2, [r6, #0]
  80098f6:	e7e3      	b.n	80098c0 <vTaskPriorityDisinheritAfterTimeout+0x68>
- 80098f8:	08011724 	.word	0x08011724
+ 80098f8:	0801172c 	.word	0x0801172c
  80098fc:	20000f40 	.word	0x20000f40
  8009900:	20000eb4 	.word	0x20000eb4
  8009904:	20000e38 	.word	0x20000e38
@@ -23422,7 +23424,7 @@ BaseType_t xAlreadyYielded = pdFALSE;
  80099ca:	f3bf 8f6f 	isb	sy
  80099ce:	e7cb      	b.n	8009968 <ulTaskGenericNotifyTake+0x30>
  80099d0:	20000f40 	.word	0x20000f40
- 80099d4:	08011724 	.word	0x08011724
+ 80099d4:	0801172c 	.word	0x0801172c
 
 080099d8 <xTaskGenericNotify>:
 	{
@@ -23558,7 +23560,7 @@ BaseType_t xAlreadyYielded = pdFALSE;
  8009ad8:	f7f7 f90e 	bl	8000cf8 <vAssertCalled>
  8009adc:	e7a1      	b.n	8009a22 <xTaskGenericNotify+0x4a>
  8009ade:	bf00      	nop
- 8009ae0:	08011724 	.word	0x08011724
+ 8009ae0:	0801172c 	.word	0x0801172c
  8009ae4:	20000e38 	.word	0x20000e38
  8009ae8:	20000eb4 	.word	0x20000eb4
  8009aec:	20000f40 	.word	0x20000f40
@@ -23680,7 +23682,7 @@ portFORCE_INLINE static void vPortSetBASEPRI( uint32_t ulNewMaskValue )
  8009bb4:	f7fe fcc6 	bl	8008544 <vListInsertEnd>
  8009bb8:	e7d0      	b.n	8009b5c <vTaskGenericNotifyGiveFromISR+0x6c>
  8009bba:	bf00      	nop
- 8009bbc:	08011724 	.word	0x08011724
+ 8009bbc:	0801172c 	.word	0x0801172c
  8009bc0:	20000e18 	.word	0x20000e18
  8009bc4:	20000e70 	.word	0x20000e70
  8009bc8:	20000f40 	.word	0x20000f40
@@ -23772,7 +23774,7 @@ volatile uint32_t ulDummy = 0;
  8009c46:	b003      	add	sp, #12
  8009c48:	f85d fb04 	ldr.w	pc, [sp], #4
  8009c4c:	2000002c 	.word	0x2000002c
- 8009c50:	08011750 	.word	0x08011750
+ 8009c50:	08011758 	.word	0x08011758
 
 08009c54 <pxPortInitialiseStack>:
 {
@@ -23850,7 +23852,7 @@ volatile uint32_t ulDummy = 0;
  8009cea:	f7f7 b805 	b.w	8000cf8 <vAssertCalled>
  8009cee:	bf00      	nop
  8009cf0:	2000002c 	.word	0x2000002c
- 8009cf4:	08011750 	.word	0x08011750
+ 8009cf4:	08011758 	.word	0x08011758
 
 08009cf8 <vPortExitCritical>:
 {
@@ -23877,7 +23879,7 @@ volatile uint32_t ulDummy = 0;
  8009d18:	e7f2      	b.n	8009d00 <vPortExitCritical+0x8>
  8009d1a:	bf00      	nop
  8009d1c:	2000002c 	.word	0x2000002c
- 8009d20:	08011750 	.word	0x08011750
+ 8009d20:	08011758 	.word	0x08011758
 	...
 
 08009d30 <PendSV_Handler>:
@@ -24077,7 +24079,7 @@ volatile uint32_t ulDummy = 0;
  8009e9c:	20000f48 	.word	0x20000f48
  8009ea0:	20000f44 	.word	0x20000f44
  8009ea4:	2000002c 	.word	0x2000002c
- 8009ea8:	08011750 	.word	0x08011750
+ 8009ea8:	08011758 	.word	0x08011758
 
 08009eac <vPortValidateInterruptPriority>:
 /*-----------------------------------------------------------*/
@@ -24146,7 +24148,7 @@ volatile uint32_t ulDummy = 0;
  8009ef4:	e000e3f0 	.word	0xe000e3f0
  8009ef8:	20000f48 	.word	0x20000f48
  8009efc:	20000f44 	.word	0x20000f44
- 8009f00:	08011750 	.word	0x08011750
+ 8009f00:	08011758 	.word	0x08011758
 
 08009f04 <prvInsertBlockIntoFreeList>:
 BlockLink_t *pxIterator;
@@ -24365,7 +24367,7 @@ uint8_t *puc;
  800a01c:	20000f64 	.word	0x20000f64
  800a020:	20000f58 	.word	0x20000f58
  800a024:	20000f54 	.word	0x20000f54
- 800a028:	08011790 	.word	0x08011790
+ 800a028:	08011798 	.word	0x08011798
  800a02c:	20000f5c 	.word	0x20000f5c
 
 0800a030 <vPortFree>:
@@ -24437,7 +24439,7 @@ uint8_t *puc;
  800a0ae:	f7ff b8d9 	b.w	8009264 <xTaskResumeAll>
  800a0b2:	4770      	bx	lr
  800a0b4:	20000f4c 	.word	0x20000f4c
- 800a0b8:	08011790 	.word	0x08011790
+ 800a0b8:	08011798 	.word	0x08011798
  800a0bc:	20000f5c 	.word	0x20000f5c
  800a0c0:	20000f50 	.word	0x20000f50
 
@@ -24646,7 +24648,7 @@ const HeapRegion_t *pxHeapRegion;
 }
  800a1bc:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
  800a1c0:	20000f60 	.word	0x20000f60
- 800a1c4:	08011790 	.word	0x08011790
+ 800a1c4:	08011798 	.word	0x08011798
  800a1c8:	20000f58 	.word	0x20000f58
  800a1cc:	20000f5c 	.word	0x20000f5c
  800a1d0:	20000f4c 	.word	0x20000f4c
@@ -24762,7 +24764,7 @@ __weak HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority)
  800a272:	bf00      	nop
  800a274:	20000000 	.word	0x20000000
  800a278:	58024400 	.word	0x58024400
- 800a27c:	0800fdf8 	.word	0x0800fdf8
+ 800a27c:	0800fe00 	.word	0x0800fe00
  800a280:	20000004 	.word	0x20000004
 
 0800a284 <HAL_IncTick>:
@@ -26824,7 +26826,7 @@ uint32_t HAL_RCC_GetSysClockFreq(void)
  800b062:	bf00      	nop
  800b064:	52002000 	.word	0x52002000
  800b068:	58024400 	.word	0x58024400
- 800b06c:	0800fdf8 	.word	0x0800fdf8
+ 800b06c:	0800fe00 	.word	0x0800fe00
  800b070:	20000004 	.word	0x20000004
  800b074:	20000000 	.word	0x20000000
  800b078:	20000034 	.word	0x20000034
@@ -26917,7 +26919,7 @@ uint32_t HAL_RCC_GetHCLKFreq(void)
  800b0de:	e7d8      	b.n	800b092 <HAL_RCC_GetHCLKFreq+0x16>
  800b0e0:	58024400 	.word	0x58024400
  800b0e4:	003d0900 	.word	0x003d0900
- 800b0e8:	0800fdf8 	.word	0x0800fdf8
+ 800b0e8:	0800fe00 	.word	0x0800fe00
  800b0ec:	20000000 	.word	0x20000000
  800b0f0:	20000004 	.word	0x20000004
  800b0f4:	007a1200 	.word	0x007a1200
@@ -26950,7 +26952,7 @@ uint32_t HAL_RCC_GetPCLK1Freq(void)
  800b114:	bd08      	pop	{r3, pc}
  800b116:	bf00      	nop
  800b118:	58024400 	.word	0x58024400
- 800b11c:	0800fdf8 	.word	0x0800fdf8
+ 800b11c:	0800fe00 	.word	0x0800fe00
 
 0800b120 <HAL_RCC_GetPCLK2Freq>:
   * @note   Each time PCLK2 changes, this function must be called to update the
@@ -26978,7 +26980,7 @@ uint32_t HAL_RCC_GetPCLK2Freq(void)
  800b138:	bd08      	pop	{r3, pc}
  800b13a:	bf00      	nop
  800b13c:	58024400 	.word	0x58024400
- 800b140:	0800fdf8 	.word	0x0800fdf8
+ 800b140:	0800fe00 	.word	0x0800fe00
 
 0800b144 <RCCEx_PLL2_Config.part.0>:
   * @param  Divider  divider parameter to be updated
@@ -29010,7 +29012,7 @@ static HAL_StatusTypeDef RCCEx_PLL3_Config(RCC_PLL3InitTypeDef *pll3, uint32_t D
  800c1d8:	bd08      	pop	{r3, pc}
  800c1da:	bf00      	nop
  800c1dc:	58024400 	.word	0x58024400
- 800c1e0:	0800fdf8 	.word	0x0800fdf8
+ 800c1e0:	0800fe00 	.word	0x0800fe00
 
 0800c1e4 <HAL_RCCEx_GetPLL2ClockFreq>:
   pllsource = (RCC->PLLCKSELR & RCC_PLLCKSELR_PLLSRC);
@@ -30031,7 +30033,7 @@ __STATIC_FORCEINLINE uint32_t __STREXW(uint32_t value, volatile uint32_t *addr)
  800c968:	58024400 	.word	0x58024400
  800c96c:	03d09000 	.word	0x03d09000
  800c970:	003d0900 	.word	0x003d0900
- 800c974:	080117c8 	.word	0x080117c8
+ 800c974:	080117d0 	.word	0x080117d0
         if (__HAL_RCC_GET_FLAG(RCC_FLAG_HSIDIV) != 0U)
  800c978:	4b24      	ldr	r3, [pc, #144]	@ (800ca0c <UART_SetConfig+0x364>)
  800c97a:	681a      	ldr	r2, [r3, #0]
@@ -30113,7 +30115,7 @@ __STATIC_FORCEINLINE uint32_t __STREXW(uint32_t value, volatile uint32_t *addr)
  800ca0a:	e748      	b.n	800c89e <UART_SetConfig+0x1f6>
  800ca0c:	58024400 	.word	0x58024400
  800ca10:	03d09000 	.word	0x03d09000
- 800ca14:	080117c8 	.word	0x080117c8
+ 800ca14:	080117d0 	.word	0x080117d0
  800ca18:	000ffcff 	.word	0x000ffcff
  800ca1c:	003d0900 	.word	0x003d0900
 
@@ -30638,8 +30640,8 @@ static void UARTEx_SetNbDataToProcess(UART_HandleTypeDef *huart)
 }
  800cd88:	4770      	bx	lr
  800cd8a:	bf00      	nop
- 800cd8c:	080117e8 	.word	0x080117e8
- 800cd90:	080117e0 	.word	0x080117e0
+ 800cd8c:	080117f0 	.word	0x080117f0
+ 800cd90:	080117e8 	.word	0x080117e8
 
 0800cd94 <HAL_UARTEx_DisableFifoMode>:
   __HAL_LOCK(huart);
@@ -30824,7 +30826,7 @@ void vUDPLoggingTaskCreate( void )
  800ce90:	bd10      	pop	{r4, pc}
  800ce92:	bf00      	nop
  800ce94:	20001044 	.word	0x20001044
- 800ce98:	080117f0 	.word	0x080117f0
+ 800ce98:	080117f8 	.word	0x080117f8
  800ce9c:	0800d00d 	.word	0x0800d00d
  800cea0:	2000103c 	.word	0x2000103c
 
@@ -31047,10 +31049,10 @@ void __attribute__((weak)) vUDPLoggingHook( const char *pcMessage, BaseType_t xL
  800cff0:	20001048 	.word	0x20001048
  800cff4:	20001058 	.word	0x20001058
  800cff8:	000f4240 	.word	0x000f4240
- 800cffc:	08011820 	.word	0x08011820
+ 800cffc:	08011828 	.word	0x08011828
  800d000:	20001044 	.word	0x20001044
  800d004:	20001040 	.word	0x20001040
- 800d008:	080117f8 	.word	0x080117f8
+ 800d008:	08011800 	.word	0x08011800
 
 0800d00c <prvLoggingTask>:
 #if( ipconfigOLD_MULTI != 0 )
@@ -31550,7 +31552,7 @@ uint64_t ullReturn;
  800d2be:	bf00      	nop
  800d2c0:	200011a0 	.word	0x200011a0
  800d2c4:	2000119c 	.word	0x2000119c
- 800d2c8:	08011838 	.word	0x08011838
+ 800d2c8:	08011840 	.word	0x08011840
  800d2cc:	20001178 	.word	0x20001178
 
 0800d2d0 <vIPerfTask>:
@@ -32018,25 +32020,25 @@ FreeRTOS_printf( ( "Control string: %s\n", pcReadBuffer ) );
  800d5aa:	e77a      	b.n	800d4a2 <vIPerfTask+0x1d2>
  800d5ac:	20001178 	.word	0x20001178
  800d5b0:	20001188 	.word	0x20001188
- 800d5b4:	080118a0 	.word	0x080118a0
- 800d5b8:	080118e8 	.word	0x080118e8
+ 800d5b4:	080118a8 	.word	0x080118a8
+ 800d5b8:	080118f0 	.word	0x080118f0
  800d5bc:	0800d241 	.word	0x0800d241
- 800d5c0:	08011924 	.word	0x08011924
- 800d5c4:	08011938 	.word	0x08011938
+ 800d5c0:	0801192c 	.word	0x0801192c
+ 800d5c4:	08011940 	.word	0x08011940
  800d5c8:	000f4240 	.word	0x000f4240
  800d5cc:	20001184 	.word	0x20001184
  800d5d0:	2000117c 	.word	0x2000117c
  800d5d4:	20001180 	.word	0x20001180
  800d5d8:	6401db09 	.word	0x6401db09
- 800d5dc:	08011ba0 	.word	0x08011ba0
+ 800d5dc:	08011ba8 	.word	0x08011ba8
  800d5e0:	51eb851f 	.word	0x51eb851f
- 800d5e4:	08011a48 	.word	0x08011a48
- 800d5e8:	08011a5c 	.word	0x08011a5c
- 800d5ec:	08011a68 	.word	0x08011a68
- 800d5f0:	08011a74 	.word	0x08011a74
- 800d5f4:	08011a70 	.word	0x08011a70
+ 800d5e4:	08011a50 	.word	0x08011a50
+ 800d5e8:	08011a64 	.word	0x08011a64
+ 800d5ec:	08011a70 	.word	0x08011a70
+ 800d5f0:	08011a7c 	.word	0x08011a7c
+ 800d5f4:	08011a78 	.word	0x08011a78
  800d5f8:	200011f4 	.word	0x200011f4
- 800d5fc:	080119b0 	.word	0x080119b0
+ 800d5fc:	080119b8 	.word	0x080119b8
 		if( xRemaining < 4 )
  800d600:	f1ba 0f03 	cmp.w	sl, #3
  800d604:	f77f af4c 	ble.w	800d4a0 <vIPerfTask+0x1d0>
@@ -32437,21 +32439,21 @@ uint32_t ulDuration = ( uint32_t ) ( ullGetHighResolutionTime() - ullStart  );
  800d8be:	f1a2 0008 	sub.w	r0, r2, #8
  800d8c2:	f7f8 facd 	bl	8005e60 <vListInsertGeneric>
  800d8c6:	e5d4      	b.n	800d472 <vIPerfTask+0x1a2>
- 800d8c8:	08011ad0 	.word	0x08011ad0
+ 800d8c8:	08011ad8 	.word	0x08011ad8
  800d8cc:	2000119c 	.word	0x2000119c
- 800d8d0:	08011af4 	.word	0x08011af4
- 800d8d4:	08011a24 	.word	0x08011a24
- 800d8d8:	08011aa8 	.word	0x08011aa8
+ 800d8d0:	08011afc 	.word	0x08011afc
+ 800d8d4:	08011a2c 	.word	0x08011a2c
+ 800d8d8:	08011ab0 	.word	0x08011ab0
  800d8dc:	200011a4 	.word	0x200011a4
- 800d8e0:	080119d0 	.word	0x080119d0
+ 800d8e0:	080119d8 	.word	0x080119d8
  800d8e4:	200011a0 	.word	0x200011a0
- 800d8e8:	08011998 	.word	0x08011998
+ 800d8e8:	080119a0 	.word	0x080119a0
  800d8ec:	20001190 	.word	0x20001190
  800d8f0:	200011f8 	.word	0x200011f8
- 800d8f4:	08011a70 	.word	0x08011a70
- 800d8f8:	08011a00 	.word	0x08011a00
- 800d8fc:	08011a7c 	.word	0x08011a7c
- 800d900:	08011968 	.word	0x08011968
+ 800d8f4:	08011a78 	.word	0x08011a78
+ 800d8f8:	08011a08 	.word	0x08011a08
+ 800d8fc:	08011a84 	.word	0x08011a84
+ 800d900:	08011970 	.word	0x08011970
  800d904:	20001178 	.word	0x20001178
 			if( xTaskCheckForTimeOut( &( pxClient->xTimeOut ), &( pxClient->xRemainingTime ) ) != pdFALSE )
  800d908:	f104 0114 	add.w	r1, r4, #20
@@ -32504,7 +32506,7 @@ uint32_t ulDuration = ( uint32_t ) ( ullGetHighResolutionTime() - ullStart  );
  800d966:	f7f3 f9c7 	bl	8000cf8 <vAssertCalled>
  800d96a:	e4c8      	b.n	800d2fe <vIPerfTask+0x2e>
  800d96c:	20001178 	.word	0x20001178
- 800d970:	08011878 	.word	0x08011878
+ 800d970:	08011880 	.word	0x08011880
 
 0800d974 <vIPerfInstall>:
 {
@@ -32550,8 +32552,8 @@ uint32_t ulDuration = ( uint32_t ) ( ullGetHighResolutionTime() - ullStart  );
  800d9ba:	bd10      	pop	{r4, pc}
  800d9bc:	200011f8 	.word	0x200011f8
  800d9c0:	20001174 	.word	0x20001174
- 800d9c4:	08011bd0 	.word	0x08011bd0
- 800d9c8:	08011bf8 	.word	0x08011bf8
+ 800d9c4:	08011bd8 	.word	0x08011bd8
+ 800d9c8:	08011c00 	.word	0x08011c00
  800d9cc:	0800d2d1 	.word	0x0800d2d1
 
 0800d9d0 <memcpy>:
@@ -33229,7 +33231,7 @@ static BaseType_t prints(struct SStringBuf *apBuf, const char *apString )
 	for( ; apBuf->flags.printLimit && *apString ; ++apString, --apBuf->flags.printLimit )
  800dd48:	69a7      	ldr	r7, [r4, #24]
  800dd4a:	e7ca      	b.n	800dce2 <prints+0x76>
- 800dd4c:	08011c00 	.word	0x08011c00
+ 800dd4c:	08011c08 	.word	0x08011c08
  800dd50:	000200ff 	.word	0x000200ff
  800dd54:	00020001 	.word	0x00020001
 
@@ -33929,8 +33931,8 @@ int sprintf( char *apBuf, const char *apFmt, ... )
  800e152:	46b0      	movgt	r8, r6
  800e154:	e78a      	b.n	800e06c <tiny_print+0x20c>
  800e156:	bf00      	nop
- 800e158:	08011c08 	.word	0x08011c08
- 800e15c:	08011c10 	.word	0x08011c10
+ 800e158:	08011c10 	.word	0x08011c10
+ 800e15c:	08011c18 	.word	0x08011c18
 
 0800e160 <vsnprintf>:
 	apStr->nulPos = apMaxStr-1;
@@ -34040,8 +34042,8 @@ int sprintf( char *apBuf, const char *apFmt, ... )
  800e21e:	f020 4000 	bic.w	r0, r0, #2147483648	@ 0x80000000
  800e222:	bd10      	pop	{r4, pc}
  800e224:	20000048 	.word	0x20000048
- 800e228:	08011c1c 	.word	0x08011c1c
- 800e22c:	08011c33 	.word	0x08011c33
+ 800e228:	08011c24 	.word	0x08011c24
+ 800e22c:	08011c3b 	.word	0x08011c3b
  800e230:	abcd330e 	.word	0xabcd330e
  800e234:	e66d1234 	.word	0xe66d1234
  800e238:	0005deec 	.word	0x0005deec
@@ -34370,7 +34372,7 @@ int sprintf( char *apBuf, const char *apFmt, ... )
  800e526:	2a00      	cmp	r2, #0
  800e528:	d1eb      	bne.n	800e502 <strcasecmp+0x6>
  800e52a:	bd30      	pop	{r4, r5, pc}
- 800e52c:	08011cc8 	.word	0x08011cc8
+ 800e52c:	08011cd0 	.word	0x08011cd0
 
 0800e530 <strncmp>:
  800e530:	b510      	push	{r4, lr}
@@ -34512,10 +34514,10 @@ int sprintf( char *apBuf, const char *apFmt, ... )
  800e646:	4798      	blx	r3
  800e648:	3601      	adds	r6, #1
  800e64a:	e7f2      	b.n	800e632 <__libc_init_array+0x1e>
- 800e64c:	08011e20 	.word	0x08011e20
- 800e650:	08011e20 	.word	0x08011e20
- 800e654:	08011e20 	.word	0x08011e20
- 800e658:	08011e24 	.word	0x08011e24
+ 800e64c:	08011e28 	.word	0x08011e28
+ 800e650:	08011e28 	.word	0x08011e28
+ 800e654:	08011e28 	.word	0x08011e28
+ 800e658:	08011e2c 	.word	0x08011e2c
 
 0800e65c <__retarget_lock_init_recursive>:
  800e65c:	4770      	bx	lr
@@ -34548,9 +34550,9 @@ int sprintf( char *apBuf, const char *apFmt, ... )
  800e68c:	e7f4      	b.n	800e678 <__assert_func+0x14>
  800e68e:	bf00      	nop
  800e690:	20000048 	.word	0x20000048
- 800e694:	08011cc6 	.word	0x08011cc6
- 800e698:	08011c98 	.word	0x08011c98
- 800e69c:	08011c8b 	.word	0x08011c8b
+ 800e694:	08011cce 	.word	0x08011cce
+ 800e698:	08011ca0 	.word	0x08011ca0
+ 800e69c:	08011c93 	.word	0x08011c93
 
 0800e6a0 <_free_r>:
  800e6a0:	b538      	push	{r3, r4, r5, lr}
@@ -35142,8 +35144,8 @@ int sprintf( char *apBuf, const char *apFmt, ... )
  800ebf6:	bf00      	nop
  800ebf8:	0800e8a1 	.word	0x0800e8a1
  800ebfc:	0800e917 	.word	0x0800e917
- 800ec00:	08011cc8 	.word	0x08011cc8
- 800ec04:	08011dc8 	.word	0x08011dc8
+ 800ec00:	08011cd0 	.word	0x08011cd0
+ 800ec04:	08011dd0 	.word	0x08011dd0
  800ec08:	4b0a      	ldr	r3, [pc, #40]	@ (800ec34 <__ssvfiscanf_r+0x2e4>)
  800ec0a:	2b00      	cmp	r3, #0
  800ec0c:	f43f aec5 	beq.w	800e99a <__ssvfiscanf_r+0x4a>
@@ -35244,7 +35246,7 @@ int sprintf( char *apBuf, const char *apFmt, ... )
  800ece0:	2000      	movs	r0, #0
  800ece2:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
  800ece6:	bf00      	nop
- 800ece8:	08011cc8 	.word	0x08011cc8
+ 800ece8:	08011cd0 	.word	0x08011cd0
 
 0800ecec <_scanf_i>:
  800ecec:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -35438,10 +35440,10 @@ int sprintf( char *apBuf, const char *apFmt, ... )
  800eebe:	2001      	movs	r0, #1
  800eec0:	e7f2      	b.n	800eea8 <_scanf_i+0x1bc>
  800eec2:	bf00      	nop
- 800eec4:	0800fc5c 	.word	0x0800fc5c
+ 800eec4:	0800fc64 	.word	0x0800fc64
  800eec8:	0800f2b9 	.word	0x0800f2b9
  800eecc:	0800f399 	.word	0x0800f399
- 800eed0:	08011ddc 	.word	0x08011ddc
+ 800eed0:	08011de4 	.word	0x08011de4
 
 0800eed4 <__sflush_r>:
  800eed4:	f9b1 200c 	ldrsh.w	r2, [r1, #12]
@@ -35875,7 +35877,7 @@ int sprintf( char *apBuf, const char *apFmt, ... )
  800f2ac:	d1f6      	bne.n	800f29c <_strtol_l.constprop.0+0xd8>
  800f2ae:	f8c8 1000 	str.w	r1, [r8]
  800f2b2:	e794      	b.n	800f1de <_strtol_l.constprop.0+0x1a>
- 800f2b4:	08011cc8 	.word	0x08011cc8
+ 800f2b4:	08011cd0 	.word	0x08011cd0
 
 0800f2b8 <_strtol_r>:
  800f2b8:	f7ff bf84 	b.w	800f1c4 <_strtol_l.constprop.0>
@@ -35968,7 +35970,7 @@ int sprintf( char *apBuf, const char *apFmt, ... )
  800f38e:	1e69      	subs	r1, r5, #1
  800f390:	6011      	str	r1, [r2, #0]
  800f392:	e7f5      	b.n	800f380 <_strtoul_l.constprop.0+0xc4>
- 800f394:	08011cc8 	.word	0x08011cc8
+ 800f394:	08011cd0 	.word	0x08011cd0
 
 0800f398 <_strtoul_r>:
  800f398:	f7ff bf90 	b.w	800f2bc <_strtoul_l.constprop.0>
@@ -36237,11 +36239,11 @@ int sprintf( char *apBuf, const char *apFmt, ... )
  800f604:	4630      	mov	r0, r6
  800f606:	f000 f879 	bl	800f6fc <_printf_i>
  800f60a:	e7e4      	b.n	800f5d6 <_vfiprintf_r+0x1e6>
- 800f60c:	08011de7 	.word	0x08011de7
- 800f610:	08011ded 	.word	0x08011ded
+ 800f60c:	08011def 	.word	0x08011def
+ 800f610:	08011df5 	.word	0x08011df5
  800f614:	00000000 	.word	0x00000000
  800f618:	0800f3cb 	.word	0x0800f3cb
- 800f61c:	08011dc8 	.word	0x08011dc8
+ 800f61c:	08011dd0 	.word	0x08011dd0
 
 0800f620 <_printf_common>:
  800f620:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
@@ -36572,8 +36574,8 @@ int sprintf( char *apBuf, const char *apFmt, ... )
  800f92c:	f104 0619 	add.w	r6, r4, #25
  800f930:	e7f5      	b.n	800f91e <_printf_i+0x222>
  800f932:	bf00      	nop
- 800f934:	08011df4 	.word	0x08011df4
- 800f938:	08011e05 	.word	0x08011e05
+ 800f934:	08011dfc 	.word	0x08011dfc
+ 800f938:	08011e0d 	.word	0x08011e0d
 
 0800f93c <__swbuf_r>:
  800f93c:	b5f8      	push	{r3, r4, r5, r6, r7, lr}

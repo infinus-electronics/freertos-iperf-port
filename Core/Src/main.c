@@ -482,6 +482,7 @@ static void MX_GPIO_Init(void)
  * Backup   SRAM	4k		4k	4k	0x38800000
  */
 
+static uint8_t ucRAM_dtcm [96 * 1024] __attribute__( ( section( ".dtcm_data" ) ) );
 static uint8_t ucRAM_1 [256 * 1024] __attribute__( ( section( ".ethernet_data" ) ) );
 //static uint8_t ucRAM_2 [128 * 1024] __attribute__( ( section( ".ram2_data" ) ) );
 static uint8_t ucRAM_3 [ 32 * 1024] __attribute__( ( section( ".ram3_data" ) ) );
@@ -492,6 +493,7 @@ static void vHeapInit( )
 {
 	/* Note: the memories must be sorted on their physical address. */
 	HeapRegion_t xHeapRegions[] = {
+		{ mainMEM_REGION( ucRAM_dtcm ) },
 		{ mainMEM_REGION( ucRAM_1 ) },
 //		{ mainMEM_REGION( ucRAM_2 ) },
 		{ mainMEM_REGION( ucRAM_3 ) },

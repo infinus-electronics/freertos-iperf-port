@@ -166,7 +166,13 @@ SECTIONS
     . = ALIGN(8);
   } >DTCMRAM
   
-  
+  .dtcm_data :
+  {
+    PROVIDE_HIDDEN (__dtcm_data_start = .);
+    KEEP (*(SORT(.dtcm_data.*)))
+    KEEP (*(.dtcm_data*))
+    PROVIDE_HIDDEN (__dtcm_data_end = .);
+  } >DTCMRAM
   
   .ethernet_data :
   {
