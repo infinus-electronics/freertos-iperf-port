@@ -16,5 +16,5 @@
 ../Core/Src/main.c:920:1:__io_putchar	1
 ../Core/Src/main.c:934:6:vApplicationGetIdleTaskMemory	1
 ../Core/Src/main.c:961:6:vApplicationGetTimerTaskMemory	1
-../Core/Src/main.c:1103:6:Error_Handler	1
-../Core/Src/main.c:1122:6:assert_failed	1
+../Core/Src/main.c:1105:6:Error_Handler	1
+../Core/Src/main.c:1124:6:assert_failed	1

@@ -1047,6 +1047,7 @@ void vTCPSendADC(void *pvParameter){
 	  pTxBuf = (char*)FreeRTOS_get_tx_head(xSendSocket, &xTxBufLen);
 	  FreeRTOS_printf(("ADC TX Buffer Length: %d \n", (uint32_t)xTxBufLen));
 //          /* Keep sending until the entire buffer has been sent. */
+	  HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, GPIO_PIN_SET);
           while( xAlreadyTransmitted < xTotalLengthToSend )
           {
               /* How many bytes are left to send? */
@@ -1072,6 +1073,7 @@ void vTCPSendADC(void *pvParameter){
                   break;
               }
           }
+          HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, GPIO_PIN_RESET);
       }
 
       /* Initiate graceful shutdown. */
