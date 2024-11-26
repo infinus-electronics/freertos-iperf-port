@@ -18,3 +18,4 @@ To see the UDP debug messages, run:
 
 1. Use iperf v3.1.x (tested with v3.1.3). Later versions don't have the right command string, and thus if you use -R (Nucleo -> PC) in your iperf command **it will not work**. PC -> Nucleo works regardless (tested up to iperf v3.13.x).
 2. Make sure that your PC firewall does not interfere.
+3. It is **ABSOLUTELY ESSENTIAL** to define `DATA_IN_D2_SRAM` to avoid weird memory bugs!

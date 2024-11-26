@@ -182,6 +182,14 @@ SECTIONS
     PROVIDE_HIDDEN (__ethernet_data_end = .);
   } >RAM_D1
   
+  .ram2_data :
+  {
+    PROVIDE_HIDDEN (__ram2_data_start = .);
+    KEEP (*(SORT(.ram2_data.*)))
+    KEEP (*(.ram2_data*))
+    PROVIDE_HIDDEN (__ram2_data_end = .);
+  } >RAM_D2
+  
   .ram3_data :
   {
     PROVIDE_HIDDEN (__ram3_data_start = .);

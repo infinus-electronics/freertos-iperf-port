@@ -75,7 +75,7 @@ void Error_Handler(void);
 #define LD2_GPIO_Port GPIOE
 
 /* USER CODE BEGIN Private defines */
-
+#define DATA_IN_D2_SRAM
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

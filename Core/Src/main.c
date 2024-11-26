@@ -82,6 +82,7 @@ UART_HandleTypeDef huart3;
 
 /* USER CODE BEGIN PV */
 static TaskHandle_t xServerWorkTaskHandle = NULL;
+static TaskHandle_t xTCPSendADCTaskHandle = NULL;
 
 static void vHeapInit( void );
 static void vStartRandomGenerator( void );
@@ -89,6 +90,7 @@ static void vStartRandomGenerator( void );
 #define mainTCP_SERVER_STACK_SIZE	640
 
 static void MPU_Config( void );
+uint16_t adc_data_mock[32768] __attribute__((section(".ram2_data")));
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -110,6 +112,7 @@ int verboseLevel = 0;
 static BaseType_t xDoCreateSockets;
 
 static void prvServerWorkTask( void *pvParameters );
+static void vTCPSendADC( void *pvParameters );
 
 static BaseType_t run_command_line( void );
 /* USER CODE END PFP */
@@ -145,7 +148,11 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+//  for(int i = 0; i < sizeof(adc_data_mock); i++){
+//      *(&(adc_data_mock[0]) + i) = 0x41;
+//  }
+  memset(adc_data_mock, 0x41, sizeof(adc_data_mock));
+  __DSB();
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -174,8 +181,10 @@ int main(void)
   FreeRTOS_IPInit( ucIPAddress, ucNetMask, ucGatewayAddress, ucDNSServerAddress, ucMACAddress );
 
   xTaskCreate( prvServerWorkTask, "SvrWork", mainTCP_SERVER_STACK_SIZE, NULL, 1, &xServerWorkTaskHandle );
+  xTaskCreate( vTCPSendADC, "TCP-ADC-task", mainTCP_SERVER_STACK_SIZE, NULL, 1, &xTCPSendADCTaskHandle );
   /* Start the RTOS scheduler. */
   vTaskStartScheduler();
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -706,7 +715,7 @@ static void prvServerWorkTask( void *pvParameters )
 			/* Start a new task to fetch logging lines and send them out.
 			See FreeRTOSConfig.h for the configuration of UDP logging. */
 			vUDPLoggingTaskCreate();
-			vIPerfInstall();
+//			vIPerfInstall();
 			#if( USE_LOG_EVENT != 0 )
 			{
 				iEventLogInit();
@@ -977,6 +986,113 @@ the stack and so not exists after this function exits. */
 //supply the RAM used by the Idle and Timer Service tasks if configSUPPORT_STATIC_ALLOCATION
 //
 //is set to 1.
+
+void vTCPSendADC(void *pvParameter){
+  Socket_t xSendSocket;
+  struct freertos_sockaddr xRemoteAddress;
+  socklen_t xSocketLength;
+  static const TickType_t xTimeOut = pdMS_TO_TICKS( 2000 );
+  size_t xLenToSend;
+  BaseType_t xAlreadyTransmitted = 0, xBytesSent = 0;
+  BaseType_t xTxBufLen = 0;
+  char* pTxBuf;
+  const size_t xTotalLengthToSend = 65536;
+
+  FreeRTOS_printf(("ADC Task Start \n"));
+
+  memset( &xRemoteAddress, 0, sizeof(xRemoteAddress) );
+  xRemoteAddress.sin_port = FreeRTOS_htons( 5555 );
+  xRemoteAddress.sin_addr = FreeRTOS_inet_addr_quick( 192, 168, 1, 3 );
+  xRemoteAddress.sin_family = FREERTOS_AF_INET;
+
+  /* Attempt to open the socket. */
+  xSendSocket = FreeRTOS_socket(FREERTOS_AF_INET, FREERTOS_SOCK_STREAM, FREERTOS_IPPROTO_TCP);
+  WinProperties_t xWinProperties;
+
+  memset(&xWinProperties, '\0', sizeof xWinProperties);
+
+  xWinProperties.lTxBufSize   = ipconfigIPERF_TX_BUFSIZE;	/* Units of bytes. */
+  xWinProperties.lTxWinSize   = ipconfigIPERF_TX_WINSIZE;	/* Size in units of MSS */
+  xWinProperties.lRxBufSize   = ipconfigIPERF_RX_BUFSIZE;	/* Units of bytes. */
+  xWinProperties.lRxWinSize   = ipconfigIPERF_RX_WINSIZE; /* Size in units of MSS */
+
+  /* Set send and receive time outs. */
+  FreeRTOS_setsockopt( xSendSocket,
+		     0,
+		     FREERTOS_SO_RCVTIMEO,
+		     &xTimeOut,
+		     sizeof( xTimeOut ) );
+
+  FreeRTOS_setsockopt( xSendSocket,
+		     0,
+		     FREERTOS_SO_SNDTIMEO,
+		     &xTimeOut,
+		     sizeof( xTimeOut ) );
+
+  FreeRTOS_setsockopt( xSendSocket, 0, FREERTOS_SO_WIN_PROPERTIES, ( void * ) &xWinProperties, sizeof( xWinProperties ) );
+
+  /* Check the socket was created. */
+  configASSERT( xSendSocket != FREERTOS_INVALID_SOCKET );
+  FreeRTOS_printf(("Created ADC Data Socket \n"));
+
+
+
+
+  /* Connect to the remote socket. The socket has not previously been bound to
+         a local port number so will get automatically bound to a local port inside
+         the FreeRTOS_connect() function. */
+      if( FreeRTOS_connect( xSendSocket, &xRemoteAddress, sizeof( xRemoteAddress ) ) == 0 )
+      {
+	  FreeRTOS_printf(("Connected to Remote ADC Data Socket \n"));
+	  pTxBuf = (char*)FreeRTOS_get_tx_head(xSendSocket, &xTxBufLen);
+	  FreeRTOS_printf(("ADC TX Buffer Length: %d \n", (uint32_t)xTxBufLen));
+//          /* Keep sending until the entire buffer has been sent. */
+          while( xAlreadyTransmitted < xTotalLengthToSend )
+          {
+              /* How many bytes are left to send? */
+              xLenToSend = xTotalLengthToSend - xAlreadyTransmitted;
+              xBytesSent = FreeRTOS_send( /* The socket being sent to. */
+                                          xSendSocket,
+                                          /* The data being sent. */
+                                          &( adc_data_mock[ xAlreadyTransmitted ] ),
+                                          /* The remaining length of data to send. */
+                                          xLenToSend,
+                                          /* ulFlags. */
+                                          0 );
+
+              if( xBytesSent >= 0 )
+              {
+                  /* Data was sent successfully. */
+                  xAlreadyTransmitted += xBytesSent;
+                  FreeRTOS_printf(("Already transmitted %d bytes \n", xAlreadyTransmitted));
+              }
+              else
+              {
+                  /* Error - break out of the loop for graceful socket close. */
+                  break;
+              }
+          }
+      }
+
+      /* Initiate graceful shutdown. */
+      FreeRTOS_shutdown( xSendSocket, FREERTOS_SHUT_RDWR );
+      /* Wait for the socket to disconnect gracefully (indicated by FreeRTOS\_recv()
+	 returning a -pdFREERTOS_ERRNO_EINVAL error) before closing the socket. */
+      while( FreeRTOS_recv( xSendSocket, adc_data_mock, xTotalLengthToSend, 0 ) >= 0 )
+      {
+	  /* Wait for shutdown to complete. If a receive block time is used then
+	     this delay will not be necessary as FreeRTOS_recv() will place the RTOS task
+	     into the Blocked state anyway. */
+	  vTaskDelay( 1 );
+
+	  /* Note - real applications should implement a timeout here, not just
+	     loop forever. */
+      }
+
+      /* The socket has shut down and is safe to close. */
+      FreeRTOS_closesocket( xSendSocket );
+
+}
 
 /* USER CODE END 4 */
 
